@@ -148,7 +148,7 @@
       color: #999;
       line-height: 1.6;
       max-width: 480px;
-      margin: 0 auto 48px;
+      margin: 0 auto 40px;
       opacity: 0;
       animation: fadeUp 0.8s ease 0.6s forwards;
     }
@@ -174,26 +174,15 @@
       transform: translateY(-1px);
       box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
     }
-    .hero-scroll {
-      position: absolute;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+    .hero-proof {
+      margin-top: 20px;
+      font-size: 0.85rem;
       color: #666;
       opacity: 0;
-      animation: fadeUp 0.8s ease 1.2s forwards;
+      animation: fadeUp 0.8s ease 1.0s forwards;
     }
-    .hero-scroll::after {
-      content: '';
-      display: block;
-      width: 1px;
-      height: 32px;
-      background: linear-gradient(180deg, #666, transparent);
-      margin: 8px auto 0;
+    .hero-proof strong {
+      color: #999;
     }
 
     @keyframes fadeUp {
@@ -484,6 +473,27 @@
       line-height: 1.6;
     }
 
+    /* Objection handler above form */
+    .objection-strip {
+      max-width: 480px;
+      margin: 0 auto 24px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .objection-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: #666;
+    }
+    .objection-item .icon {
+      color: #34C759;
+      font-size: 0.9rem;
+    }
+
     .form-box {
       background: #1a1a1a;
       border: 1px solid rgba(201, 168, 76, 0.12);
@@ -572,12 +582,74 @@
     }
     .form-submit:active { transform: translateY(0); }
 
-    .form-proof {
+    /* Micro-copy below submit */
+    .form-micro {
       text-align: center;
       color: #555;
       font-size: 0.8rem;
-      margin-top: 20px;
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+    .form-micro .lock-icon {
+      display: inline-block;
+      margin-right: 4px;
+      font-size: 0.75rem;
+    }
+
+    .form-proof {
+      text-align: center;
+      color: #999;
+      font-size: 0.85rem;
+      margin-top: 24px;
       letter-spacing: 0.01em;
+      padding-top: 20px;
+      border-top: 1px solid #2a2a2a;
+    }
+    .form-proof strong {
+      color: #C9A84C;
+    }
+
+    /* What happens next */
+    .next-steps {
+      max-width: 480px;
+      margin: 28px auto 0;
+      text-align: center;
+    }
+    .next-steps-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #666;
+      margin-bottom: 16px;
+    }
+    .next-steps-list {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .next-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .next-step .num {
+      width: 24px;
+      height: 24px;
+      background: rgba(201, 168, 76, 0.08);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      color: #C9A84C;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
     /* ========== TRUST BAR ========== */
@@ -615,22 +687,6 @@
     footer a:hover { color: #C9A84C; }
     .footer-links { margin-bottom: 16px; }
     .footer-links a { margin: 0 16px; }
-    .footer-newsletter {
-      max-width: 480px;
-      margin: 24px auto;
-      padding: 24px 0;
-      border-top: 1px solid #2a2a2a;
-    }
-    .footer-newsletter p {
-      font-size: 0.85rem;
-      color: #555;
-      margin-bottom: 16px;
-    }
-    .footer-newsletter iframe {
-      width: 100%;
-      border: none;
-      border-radius: 2px;
-    }
 
     /* ========== SCROLL REVEALS ========== */
     .reveal {
@@ -665,8 +721,45 @@
       transform: translateY(-1px);
       box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
     }
+    .cta-inline-proof {
+      margin-top: 12px;
+      font-size: 0.82rem;
+      color: #555;
+    }
     @media (max-width: 600px) {
       .cta-inline a { display: block; width: 100%; }
+    }
+
+    /* ========== STICKY CTA (mobile) ========== */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 12px 20px;
+      text-align: center;
+    }
+    .sticky-cta.visible { display: block; }
+    .sticky-cta a {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      background: #C9A84C;
+      border-radius: 2px;
+      text-decoration: none;
+    }
+    @media (min-width: 601px) {
+      .sticky-cta { display: none !important; }
     }
   </style>
 </head>
@@ -674,11 +767,11 @@
 
   <!-- ==================== HERO ==================== -->
   <section class="hero">
-    <div class="hero-eyebrow">Free Valuation Guide</div>
+    <div class="hero-eyebrow">For Service Business Owners Doing $5M-$50M</div>
     <h1>What Is Your Service<br>Business <span>Actually Worth?</span></h1>
-    <p class="hero-sub">Most owners overestimate by 40%. Here's how buyers really calculate it.</p>
-    <a href="#get-training" class="hero-cta">Get the Free Training</a>
-    <div class="hero-scroll">Scroll</div>
+    <p class="hero-sub">73% of owners get a lower offer than expected. Here's the exact formula buyers use - and how to fix the 3 things killing your price.</p>
+    <a href="#get-training" class="hero-cta">Show Me the Buyer's Formula</a>
+    <p class="hero-proof"><strong>5,000+</strong> service business owners have used this training</p>
   </section>
 
   <hr class="divider-gradient">
@@ -708,7 +801,7 @@
       </div>
 
       <div class="card card-elevated reveal">
-        <h3>Adjusted EBITDA</h3>
+        <h3>Adjusted EBITDA (Your Profit After Expenses)</h3>
         <p>Start with net profit. Add back your salary, interest, depreciation, amortization, and one-time expenses. That's your adjusted EBITDA - the number buyers actually care about.</p>
         <p style="color: #666; font-size: 0.9rem;">Example: $600K net profit + $250K owner salary + $50K one-time legal fees = <strong style="color: #C9A84C;">$900K adjusted EBITDA</strong></p>
       </div>
@@ -781,6 +874,11 @@
           <span class="loss">Reduced value: $5.4M</span><br><br>
           <span class="highlight">Difference: $1.8M left on the table.</span>
         </div>
+      </div>
+
+      <div class="cta-inline reveal">
+        <a href="#get-training">Show Me How to Fix This</a>
+        <p class="cta-inline-proof">Free training. Takes 15 minutes. No sales call.</p>
       </div>
 
     </div>
@@ -867,7 +965,8 @@
       </div>
 
       <div class="cta-inline reveal">
-        <a href="#get-training">Get My Free Valuation Training</a>
+        <a href="#get-training">Get the Free Training Now</a>
+        <p class="cta-inline-proof">Join 5,000+ owners who used this to increase their exit value</p>
       </div>
     </div>
   </section>
@@ -878,9 +977,16 @@
   <section id="get-training" class="form-section">
     <div class="container">
       <div class="form-header reveal">
-        <span class="form-header-label">Free Access</span>
-        <h2>Get the Training</h2>
-        <p>3 steps to increase your business value before you sell. Real math. Real case studies. No fluff.</p>
+        <span class="form-header-label">Instant Access</span>
+        <h2>Get the Free Valuation Training</h2>
+        <p>The 3 steps that increase your exit price - with real math, real case studies, and the exact checklist PE buyers use.</p>
+      </div>
+
+      <!-- Objection strip (Wiebe: handle objections before the form) -->
+      <div class="objection-strip reveal">
+        <div class="objection-item"><span class="icon">&#10003;</span> Free - no credit card</div>
+        <div class="objection-item"><span class="icon">&#10003;</span> 15-minute read</div>
+        <div class="objection-item"><span class="icon">&#10003;</span> No sales call</div>
       </div>
 
       <div class="form-box reveal">
@@ -900,7 +1006,7 @@
 
           <div class="form-group">
             <label class="form-label" for="business_type">Business Type</label>
-            <select id="business_type" name="business_type" class="form-select" required>
+            <select id="business_type" name="business_type" class="form-select" required autocomplete="organization-title">
               <option value="" disabled selected>Select your industry</option>
               <option value="Plumbing">Plumbing</option>
               <option value="HVAC">HVAC</option>
@@ -925,24 +1031,28 @@
             </select>
           </div>
 
-          <button type="submit" class="form-submit" id="submit-btn">Get My Free Valuation Training &rarr;</button>
+          <button type="submit" class="form-submit" id="submit-btn">Get Instant Access to the Training &rarr;</button>
+
+          <!-- Micro-copy: anxiety reduction (Wolf) -->
+          <p class="form-micro"><span class="lock-icon">&#128274;</span> Your info stays private. We never share or sell your data.</p>
         </form>
 
-        <p class="form-proof">Join 5,000+ business owners who increased their exit value</p>
+        <!-- Social proof within eyeline of CTA (Wolf) -->
+        <p class="form-proof"><strong>5,000+</strong> service business owners have used this training to increase their exit value</p>
       </div>
 
-      <p style="color: #555; font-size: 0.85rem; margin-top: 28px; text-align: center; line-height: 1.5;">Takes 15 minutes to read - could be worth millions at exit.</p>
+      <!-- What happens next (Lillrud: reduce anxiety about the unknown) -->
+      <div class="next-steps reveal">
+        <p class="next-steps-title">What happens next</p>
+        <div class="next-steps-list">
+          <div class="next-step"><span class="num">1</span> Instant access to the training</div>
+          <div class="next-step"><span class="num">2</span> Personalized to your industry</div>
+          <div class="next-step"><span class="num">3</span> Actionable steps you can take today</div>
+        </div>
+      </div>
+
     </div>
   </section>
-
-  <!-- TRUST BAR -->
-  <div class="trust-bar">
-    <div class="container">
-      <span>Join 5,000+ business owners</span>
-      <span style="color: #2a2a2a;">|</span>
-      <span>By <a href="https://thearenapartners.com">The Arena Partners</a></span>
-    </div>
-  </div>
 
   <!-- PRIDE CLOSE -->
   <section class="pride-close">
@@ -959,13 +1069,14 @@
         <a href="training.html">Free Training</a>
         <a href="https://thearenapartners.com/privacy">Privacy</a>
       </div>
-      <div class="footer-newsletter">
-        <p>Get weekly insights on business valuation and exit strategy.</p>
-        <iframe src="https://thearenapartners.substack.com/embed" width="480" height="150" frameborder="0" scrolling="no" style="max-width: 100%;"></iframe>
-      </div>
       <p>&copy; 2026 The Arena Partners. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Sticky CTA (mobile only) -->
+  <div class="sticky-cta" id="sticky-cta">
+    <a href="#get-training">Get the Free Training &rarr;</a>
+  </div>
 
   <script>
     // Loading state on form submit
@@ -988,6 +1099,22 @@
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       els.forEach(function(el) { observer.observe(el); });
+    })();
+
+    // Sticky CTA (show after scrolling past hero on mobile)
+    (function() {
+      var sticky = document.getElementById('sticky-cta');
+      var formSection = document.getElementById('get-training');
+      window.addEventListener('scroll', function() {
+        var scrollY = window.scrollY;
+        var formTop = formSection.getBoundingClientRect().top + window.scrollY;
+        var heroHeight = window.innerHeight;
+        if (scrollY > heroHeight && scrollY < formTop - window.innerHeight * 0.5) {
+          sticky.classList.add('visible');
+        } else {
+          sticky.classList.remove('visible');
+        }
+      });
     })();
   </script>
 

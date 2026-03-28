@@ -171,6 +171,24 @@
       animation: fadeUp 0.7s ease 0.65s forwards;
     }
 
+    /* Social proof bar under hero */
+    .hero-proof-bar {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.8s forwards;
+    }
+    .hero-proof-item {
+      font-size: 0.82rem;
+      color: #555;
+    }
+    .hero-proof-item strong {
+      color: #999;
+    }
+
     /* Personalization */
     .personalization {
       display: none;
@@ -419,11 +437,54 @@
     }
     .cta-inner h2 span { color: #C9A84C; }
     .cta-inner p { color: #999; }
+
+    /* CTA proof strip */
+    .cta-proof-strip {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      margin-bottom: 40px;
+    }
+    .cta-proof-item {
+      font-size: 0.82rem;
+      color: #555;
+    }
+    .cta-proof-item strong { color: #999; }
+
     .cta-note {
       font-size: 0.85rem;
       color: #555;
-      margin-top: 32px;
+      margin-top: 24px;
     }
+
+    /* What happens next */
+    .cta-next {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #2a2a2a;
+    }
+    .cta-next-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #666;
+      margin-bottom: 16px;
+    }
+    .cta-next-steps {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .cta-next-step {
+      font-size: 0.85rem;
+      color: #666;
+    }
+    .cta-next-step strong { color: #999; }
 
     /* ========== BUTTONS ========== */
     .btn {
@@ -445,15 +506,19 @@
     }
     .btn-gold { background: #C9A84C; color: #0a0a0a; }
     .btn-gold:hover { background: #D4B65C; color: #0a0a0a; box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15); }
-    .btn-outline {
-      background: transparent;
-      color: #C9A84C;
-      border: 1px solid rgba(201, 168, 76, 0.3);
-    }
-    .btn-outline:hover { border-color: #C9A84C; color: #D4B65C; }
     @media (max-width: 600px) {
       .btn { display: block; width: 100%; }
     }
+
+    /* Secondary link (not competing CTA) */
+    .secondary-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.9rem;
+      color: #555;
+      transition: color 0.2s ease;
+    }
+    .secondary-link:hover { color: #C9A84C; }
 
     /* ========== PRIDE CLOSE ========== */
     .pride-close {
@@ -506,7 +571,14 @@
     <div class="unlock-icon">&#10003;</div>
     <div class="unlock-badge">Your Training Is Ready</div>
     <h1>3 Steps to Increase Your Business Value <span>Before You Sell</span></h1>
-    <p class="subtitle">The playbook. Real math. Real case studies. The exact checklist PE buyers use to evaluate your business.</p>
+    <p class="subtitle">Real math. Real case studies. The exact checklist PE buyers use to evaluate your business - and how to score higher on every factor.</p>
+
+    <!-- Social proof bar (Wolf: build confidence immediately) -->
+    <div class="hero-proof-bar">
+      <span class="hero-proof-item"><strong>5,000+</strong> owners trained</span>
+      <span class="hero-proof-item"><strong>$2.4M</strong> avg. value increase</span>
+      <span class="hero-proof-item"><strong>15 min</strong> to read</span>
+    </div>
 
     <!-- Personalization -->
     <div class="personalization" id="personalization">
@@ -706,17 +778,31 @@
   <section class="cta-section">
     <div class="container">
       <div class="cta-inner reveal">
-        <h2>Now You Know the Framework.<br><span>What's Your Score?</span></h2>
-        <p style="max-width: 500px; margin: 0 auto 40px; font-size: 1.05rem; line-height: 1.6;">Take our 5-minute assessment to get your personalized scorecard across all six buyer criteria - with specific recommendations for your industry and size.</p>
+        <h2>You Know the Framework.<br><span>Now Get Your Personalized Score.</span></h2>
+        <p style="max-width: 500px; margin: 0 auto; font-size: 1.05rem; line-height: 1.6;">Take the 5-minute assessment to see exactly where you stand across all six buyer criteria - with specific recommendations for your industry and revenue size.</p>
 
-        <div style="margin-bottom: 16px;">
-          <a href="https://thearenapartners.com/assessment.html" class="btn btn-gold">Want to See Your Exact Score?</a>
+        <!-- Social proof at anxiety peak (Wolf) -->
+        <div class="cta-proof-strip">
+          <span class="cta-proof-item"><strong>5,000+</strong> owners assessed</span>
+          <span class="cta-proof-item"><strong>5 minutes</strong> to complete</span>
+          <span class="cta-proof-item"><strong>Free</strong> - no strings</span>
         </div>
+
         <div>
-          <a href="https://thearenapartners.com/book.html" class="btn btn-outline">Ready to Talk to an Advisor?</a>
+          <a href="https://thearenapartners.com/assessment.html" class="btn btn-gold">Get My Personalized Scorecard &rarr;</a>
         </div>
 
-        <p class="cta-note">No pitch. No pressure. Just an honest conversation about where you stand and what you can do about it.</p>
+        <!-- What happens next (Lillrud) -->
+        <div class="cta-next">
+          <p class="cta-next-title">What happens next</p>
+          <div class="cta-next-steps">
+            <span class="cta-next-step"><strong>1.</strong> Answer 6 questions</span>
+            <span class="cta-next-step"><strong>2.</strong> Get your score instantly</span>
+            <span class="cta-next-step"><strong>3.</strong> See exactly what to fix first</span>
+          </div>
+        </div>
+
+        <p class="cta-note">Or if you already know your score and want to talk strategy:<br><a href="https://thearenapartners.com/book.html" class="secondary-link">Book a free 15-minute call with an advisor &rarr;</a></p>
       </div>
     </div>
   </section>
