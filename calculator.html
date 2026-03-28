@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Business Valuation Calculator | The Arena Partners</title>
+  <meta name="description" content="Calculate your service business valuation using the same EBITDA multiple math PE firms use. Industry-specific multiples, risk adjustments, and your estimated exit price range.">
+  <link rel="canonical" href="https://vivianashford.github.io/satellite-valuation/calculator.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Business Valuation Calculator">
+  <meta property="og:description" content="Calculate your service business value using the same math PE firms use. Industry-specific multiples and risk adjustments.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vivianashford.github.io/satellite-valuation/calculator.html">
+  <meta property="og:site_name" content="The Arena Partners">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Service Business Valuation Calculator",
+    "url": "https://vivianashford.github.io/satellite-valuation/calculator.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "publisher": {
+      "@type": "Organization",
+      "name": "The Arena Partners",
+      "url": "https://thearenapartners.com"
+    }
+  }
+  </script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SDMM90P63D"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SDMM90P63D');
+  </script>
+</head>
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.75; font-size: 17px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; margin: 0; padding: 0; overflow-x: hidden;">
+
+  <!-- Progress indicator -->
+  <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: #111; border-bottom: 1px solid #2a2a2a;">
+    <div style="max-width: 720px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #666;">Valuation Calculator</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div id="step-dots" style="display: flex; gap: 6px;">
+          <div class="step-dot active" style="width: 8px; height: 8px; border-radius: 50%; background: #C9A84C; transition: background 0.3s ease;"></div>
+          <div class="step-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #2a2a2a; transition: background 0.3s ease;"></div>
+          <div class="step-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #2a2a2a; transition: background 0.3s ease;"></div>
+          <div class="step-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #2a2a2a; transition: background 0.3s ease;"></div>
+          <div class="step-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #2a2a2a; transition: background 0.3s ease;"></div>
+        </div>
+        <span id="step-counter" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #555;">1 / 5</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width: 720px; margin: 0 auto; padding: 0 24px;">
+    <a href="index.html" style="display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #555; padding: 80px 0 0; text-decoration: none; transition: color 0.2s ease;" onmouseover="this.style.color='#C9A84C';" onmouseout="this.style.color='#555';">&larr; Back to Valuation Guide</a>
+  </div>
+
+  <!-- ==================== CALCULATOR HERO ==================== -->
+  <section style="padding: 40px 20px 60px; text-align: center;">
+    <div style="max-width: 720px; margin: 0 auto;">
+      <div style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: #C9A84C; margin-bottom: 20px;">Interactive Calculator</div>
+      <h1 style="font-weight: 900; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -0.04em; color: #f0f0f0; margin: 0 0 16px; max-width: 600px; margin-left: auto; margin-right: auto;">What's Your Business <span style="color: #C9A84C;">Actually Worth?</span></h1>
+      <p style="font-size: clamp(1rem, 2.2vw, 1.1rem); color: #999; max-width: 480px; margin: 0 auto; line-height: 1.6;">Answer 5 questions. Get your estimated valuation range using the same math PE firms use.</p>
+    </div>
+  </section>
+
+  <!-- ==================== STEP-BY-STEP CALCULATOR ==================== -->
+  <section style="padding: 0 0 80px;">
+    <div style="max-width: 560px; margin: 0 auto; padding: 0 24px;">
+
+      <!-- STEP 1: Business Type -->
+      <div id="step-1" class="calc-step" style="opacity: 1; transform: translateY(0); transition: opacity 0.5s ease, transform 0.5s ease;">
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 40px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 28px;">
+            <div style="width: 44px; height: 44px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+            <div>
+              <h2 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 4px; line-height: 1.3;">What type of service business?</h2>
+              <p style="font-size: 0.85rem; color: #666; margin: 0;">Industry determines your base multiple range.</p>
+            </div>
+          </div>
+          <label for="calc-business-type" style="display: block; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 8px;">Business Type</label>
+          <select id="calc-business-type" style="width: 100%; min-height: 50px; padding: 14px 16px; font-family: 'Inter', sans-serif; font-size: 17px; color: #f0f0f0; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; outline: none; -webkit-appearance: none; appearance: none; cursor: pointer; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; box-sizing: border-box; transition: border-color 0.25s ease;" onfocus="this.style.borderColor='#C9A84C';" onblur="this.style.borderColor='#2a2a2a';">
+            <option value="" disabled selected>Select your industry</option>
+            <option value="Plumbing">Plumbing</option>
+            <option value="HVAC">HVAC</option>
+            <option value="Electrical">Electrical</option>
+            <option value="Pest Control">Pest Control</option>
+            <option value="Landscaping">Landscaping</option>
+            <option value="Roofing">Roofing</option>
+            <option value="Other Service">Other Service Business</option>
+          </select>
+          <button id="next-1" onclick="nextStep(2)" disabled style="width: 100%; min-height: 56px; padding: 18px 32px; margin-top: 24px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; color: #0a0a0a; background: #C9A84C; border: none; border-radius: 2px; cursor: pointer; opacity: 0.4; pointer-events: none; transition: opacity 0.3s ease, background 0.2s ease, transform 0.15s ease;" onmouseover="if(!this.disabled){this.style.background='#D4B65C'; this.style.transform='translateY(-1px)';}" onmouseout="this.style.background='#C9A84C'; this.style.transform='translateY(0)';">Continue &rarr;</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Annual Revenue -->
+      <div id="step-2" class="calc-step" style="display: none; opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease;">
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 40px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 28px;">
+            <div style="width: 44px; height: 44px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+            <div>
+              <h2 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 4px; line-height: 1.3;">What's your annual revenue?</h2>
+              <p style="font-size: 0.85rem; color: #666; margin: 0;">Higher revenue = higher base multiple. Size matters to buyers.</p>
+            </div>
+          </div>
+          <label for="calc-revenue" style="display: block; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 8px;">Annual Revenue</label>
+          <div style="position: relative;">
+            <span style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-family: 'JetBrains Mono', monospace; font-size: 17px; color: #666; pointer-events: none;">$</span>
+            <input type="text" id="calc-revenue" placeholder="5,000,000" inputmode="numeric" style="width: 100%; min-height: 50px; padding: 14px 16px 14px 32px; font-family: 'JetBrains Mono', monospace; font-size: 17px; color: #f0f0f0; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; outline: none; -webkit-appearance: none; appearance: none; box-sizing: border-box; transition: border-color 0.25s ease;" onfocus="this.style.borderColor='#C9A84C';" onblur="this.style.borderColor='#2a2a2a';">
+          </div>
+          <p id="revenue-tier" style="font-size: 0.82rem; color: #555; margin: 8px 0 0; min-height: 20px;"></p>
+          <div style="display: flex; gap: 12px; margin-top: 24px;">
+            <button onclick="prevStep(1)" style="flex: 0 0 auto; min-height: 56px; padding: 18px 24px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #666; background: transparent; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease;" onmouseover="this.style.borderColor='#555'; this.style.color='#999';" onmouseout="this.style.borderColor='#2a2a2a'; this.style.color='#666';">&larr;</button>
+            <button id="next-2" onclick="nextStep(3)" disabled style="flex: 1; min-height: 56px; padding: 18px 32px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; color: #0a0a0a; background: #C9A84C; border: none; border-radius: 2px; cursor: pointer; opacity: 0.4; pointer-events: none; transition: opacity 0.3s ease, background 0.2s ease, transform 0.15s ease;" onmouseover="if(!this.disabled){this.style.background='#D4B65C'; this.style.transform='translateY(-1px)';}" onmouseout="this.style.background='#C9A84C'; this.style.transform='translateY(0)';">Continue &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: EBITDA Margin -->
+      <div id="step-3" class="calc-step" style="display: none; opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease;">
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 40px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 28px;">
+            <div style="width: 44px; height: 44px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</div>
+            <div>
+              <h2 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 4px; line-height: 1.3;">What's your EBITDA margin?</h2>
+              <p style="font-size: 0.85rem; color: #666; margin: 0;">EBITDA = profit after expenses, before taxes and depreciation.</p>
+            </div>
+          </div>
+          <label for="calc-margin" style="display: block; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 8px;">EBITDA Margin</label>
+          <select id="calc-margin" style="width: 100%; min-height: 50px; padding: 14px 16px; font-family: 'Inter', sans-serif; font-size: 17px; color: #f0f0f0; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; outline: none; -webkit-appearance: none; appearance: none; cursor: pointer; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E&quot;); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; box-sizing: border-box; transition: border-color 0.25s ease;" onfocus="this.style.borderColor='#C9A84C';" onblur="this.style.borderColor='#2a2a2a';">
+            <option value="" disabled selected>Select your margin</option>
+            <option value="0.05">5% - Tight margins</option>
+            <option value="0.10">10% - Below average</option>
+            <option value="0.15">15% - Average for service</option>
+            <option value="0.20">20% - Above average</option>
+            <option value="0.25">25% - Strong margins</option>
+            <option value="0.30">30% - Exceptional</option>
+          </select>
+          <p id="ebitda-preview" style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #555; margin: 12px 0 0; min-height: 20px;"></p>
+          <div style="display: flex; gap: 12px; margin-top: 24px;">
+            <button onclick="prevStep(2)" style="flex: 0 0 auto; min-height: 56px; padding: 18px 24px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #666; background: transparent; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease;" onmouseover="this.style.borderColor='#555'; this.style.color='#999';" onmouseout="this.style.borderColor='#2a2a2a'; this.style.color='#666';">&larr;</button>
+            <button id="next-3" onclick="nextStep(4)" disabled style="flex: 1; min-height: 56px; padding: 18px 32px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; color: #0a0a0a; background: #C9A84C; border: none; border-radius: 2px; cursor: pointer; opacity: 0.4; pointer-events: none; transition: opacity 0.3s ease, background 0.2s ease, transform 0.15s ease;" onmouseover="if(!this.disabled){this.style.background='#D4B65C'; this.style.transform='translateY(-1px)';}" onmouseout="this.style.background='#C9A84C'; this.style.transform='translateY(0)';">Continue &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Recurring Revenue -->
+      <div id="step-4" class="calc-step" style="display: none; opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease;">
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 40px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 28px;">
+            <div style="width: 44px; height: 44px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">4</div>
+            <div>
+              <h2 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 4px; line-height: 1.3;">How much revenue is recurring?</h2>
+              <p style="font-size: 0.85rem; color: #666; margin: 0;">Contracts, maintenance agreements, retainers. Predictable revenue = premium valuation.</p>
+            </div>
+          </div>
+          <label style="display: block; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 12px;">Recurring Revenue Percentage</label>
+          <div id="recurring-options" style="display: grid; gap: 8px;">
+            <label style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='#555';" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='#2a2a2a';">
+              <input type="radio" name="recurring" value="0-10" style="accent-color: #C9A84C; width: 18px; height: 18px; cursor: pointer;">
+              <div>
+                <span style="color: #f0f0f0; font-size: 1rem; font-weight: 600;">0 - 10%</span>
+                <span style="display: block; font-size: 0.82rem; color: #666;">Mostly project-based</span>
+              </div>
+            </label>
+            <label style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='#555';" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='#2a2a2a';">
+              <input type="radio" name="recurring" value="10-20" style="accent-color: #C9A84C; width: 18px; height: 18px; cursor: pointer;">
+              <div>
+                <span style="color: #f0f0f0; font-size: 1rem; font-weight: 600;">10 - 20%</span>
+                <span style="display: block; font-size: 0.82rem; color: #666;">Some maintenance contracts</span>
+              </div>
+            </label>
+            <label style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='#555';" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='#2a2a2a';">
+              <input type="radio" name="recurring" value="20-30" style="accent-color: #C9A84C; width: 18px; height: 18px; cursor: pointer;">
+              <div>
+                <span style="color: #f0f0f0; font-size: 1rem; font-weight: 600;">20 - 30%</span>
+                <span style="display: block; font-size: 0.82rem; color: #666;">Solid contract base</span>
+              </div>
+            </label>
+            <label style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='#555';" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='#2a2a2a';">
+              <input type="radio" name="recurring" value="30-40" style="accent-color: #C9A84C; width: 18px; height: 18px; cursor: pointer;">
+              <div>
+                <span style="color: #f0f0f0; font-size: 1rem; font-weight: 600;">30 - 40%</span>
+                <span style="display: block; font-size: 0.82rem; color: #666;">Strong recurring model</span>
+              </div>
+            </label>
+            <label style="display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='#555';" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='#2a2a2a';">
+              <input type="radio" name="recurring" value="40+" style="accent-color: #C9A84C; width: 18px; height: 18px; cursor: pointer;">
+              <div>
+                <span style="color: #f0f0f0; font-size: 1rem; font-weight: 600;">40%+</span>
+                <span style="display: block; font-size: 0.82rem; color: #666;">Premium recurring business</span>
+              </div>
+            </label>
+          </div>
+          <div style="display: flex; gap: 12px; margin-top: 24px;">
+            <button onclick="prevStep(3)" style="flex: 0 0 auto; min-height: 56px; padding: 18px 24px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #666; background: transparent; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease;" onmouseover="this.style.borderColor='#555'; this.style.color='#999';" onmouseout="this.style.borderColor='#2a2a2a'; this.style.color='#666';">&larr;</button>
+            <button id="next-4" onclick="nextStep(5)" disabled style="flex: 1; min-height: 56px; padding: 18px 32px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; color: #0a0a0a; background: #C9A84C; border: none; border-radius: 2px; cursor: pointer; opacity: 0.4; pointer-events: none; transition: opacity 0.3s ease, background 0.2s ease, transform 0.15s ease;" onmouseover="if(!this.disabled){this.style.background='#D4B65C'; this.style.transform='translateY(-1px)';}" onmouseout="this.style.background='#C9A84C'; this.style.transform='translateY(0)';">Continue &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5: Owner Dependency -->
+      <div id="step-5" class="calc-step" style="display: none; opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease;">
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 40px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 28px;">
+            <div style="width: 44px; height: 44px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">5</div>
+            <div>
+              <h2 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 4px; line-height: 1.3;">How dependent is the business on you?</h2>
+              <p style="font-size: 0.85rem; color: #666; margin: 0;">This is the #1 multiple killer. Be honest.</p>
+            </div>
+          </div>
+          <label style="display: block; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 12px;">Owner Dependency</label>
+          <div id="owner-options" style="display: grid; gap: 8px;">
+            <label style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='#555';" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='#2a2a2a';">
+              <input type="radio" name="owner" value="high" style="accent-color: #C9A84C; width: 18px; height: 18px; cursor: pointer; margin-top: 3px;">
+              <div>
+                <span style="color: #f0f0f0; font-size: 1rem; font-weight: 600;">I run everything</span>
+                <span style="display: block; font-size: 0.82rem; color: #666;">Every major decision, key client relationship, and crisis runs through me.</span>
+              </div>
+            </label>
+            <label style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='#555';" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='#2a2a2a';">
+              <input type="radio" name="owner" value="medium" style="accent-color: #C9A84C; width: 18px; height: 18px; cursor: pointer; margin-top: 3px;">
+              <div>
+                <span style="color: #f0f0f0; font-size: 1rem; font-weight: 600;">I have managers but make key decisions</span>
+                <span style="display: block; font-size: 0.82rem; color: #666;">Day-to-day runs OK, but I'm involved in strategy, big clients, and hiring.</span>
+              </div>
+            </label>
+            <label style="display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease;" onmouseover="this.style.borderColor='#555';" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='#2a2a2a';">
+              <input type="radio" name="owner" value="low" style="accent-color: #C9A84C; width: 18px; height: 18px; cursor: pointer; margin-top: 3px;">
+              <div>
+                <span style="color: #f0f0f0; font-size: 1rem; font-weight: 600;">Business runs without me most days</span>
+                <span style="display: block; font-size: 0.82rem; color: #666;">Strong management team. I focus on growth and vision.</span>
+              </div>
+            </label>
+          </div>
+          <div style="display: flex; gap: 12px; margin-top: 24px;">
+            <button onclick="prevStep(4)" style="flex: 0 0 auto; min-height: 56px; padding: 18px 24px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #666; background: transparent; border: 1px solid #2a2a2a; border-radius: 2px; cursor: pointer; transition: border-color 0.2s ease, color 0.2s ease;" onmouseover="this.style.borderColor='#555'; this.style.color='#999';" onmouseout="this.style.borderColor='#2a2a2a'; this.style.color='#666';">&larr;</button>
+            <button id="next-5" onclick="calculateValuation()" disabled style="flex: 1; min-height: 56px; padding: 18px 32px; font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700; color: #0a0a0a; background: #C9A84C; border: none; border-radius: 2px; cursor: pointer; opacity: 0.4; pointer-events: none; transition: opacity 0.3s ease, background 0.2s ease, transform 0.15s ease;" onmouseover="if(!this.disabled){this.style.background='#D4B65C'; this.style.transform='translateY(-1px)';}" onmouseout="this.style.background='#C9A84C'; this.style.transform='translateY(0)';">Calculate My Valuation &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== RESULTS ==================== -->
+      <div id="results" style="display: none; opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+
+        <!-- Valuation Result Card -->
+        <div style="background: linear-gradient(180deg, rgba(201,168,76,0.04) 0%, #1a1a1a 100%); border: 1px solid rgba(201,168,76,0.2); border-radius: 2px; padding: 48px 32px; box-shadow: 0 8px 40px rgba(0,0,0,0.4); position: relative; margin-bottom: 20px;">
+          <div style="position: absolute; top: -1px; left: 32px; right: 32px; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);"></div>
+
+          <div style="text-align: center; margin-bottom: 40px;">
+            <div style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: #C9A84C; margin-bottom: 16px;">Your Estimated Valuation Range</div>
+            <div id="valuation-range" style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(2.2rem, 6vw, 3.2rem); color: #f0f0f0; letter-spacing: -0.02em; line-height: 1.2;"></div>
+            <div id="valuation-label" style="font-size: 0.9rem; color: #666; margin-top: 8px;"></div>
+          </div>
+
+          <!-- Visual Gauge -->
+          <div style="margin-bottom: 40px;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px;">
+              <span style="color: #FF3B30;">Below Market</span>
+              <span style="color: #C9A84C;">At Market</span>
+              <span style="color: #34C759;">Above Market</span>
+            </div>
+            <div style="position: relative; height: 8px; background: linear-gradient(90deg, #FF3B30, #C9A84C 50%, #34C759); border-radius: 4px; overflow: visible;">
+              <div id="gauge-marker" style="position: absolute; top: -6px; width: 20px; height: 20px; background: #f0f0f0; border: 2px solid #0a0a0a; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.5); transition: left 1s ease; left: 50%;"></div>
+            </div>
+          </div>
+
+          <!-- Breakdown -->
+          <div style="border-top: 1px solid #2a2a2a; padding-top: 32px;">
+            <div style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 16px;">Calculation Breakdown</div>
+
+            <div style="display: grid; gap: 12px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(42,42,42,0.5);">
+                <span style="color: #999;">Annual Revenue</span>
+                <span id="result-revenue" style="font-family: 'JetBrains Mono', monospace; color: #f0f0f0;"></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(42,42,42,0.5);">
+                <span style="color: #999;">EBITDA Margin</span>
+                <span id="result-margin" style="font-family: 'JetBrains Mono', monospace; color: #f0f0f0;"></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(42,42,42,0.5);">
+                <span style="color: #999; font-weight: 600;">Estimated EBITDA</span>
+                <span id="result-ebitda" style="font-family: 'JetBrains Mono', monospace; color: #C9A84C; font-weight: 500;"></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(42,42,42,0.5);">
+                <span style="color: #999;">Base Multiple (<span id="result-industry-name"></span>)</span>
+                <span id="result-base-multiple" style="font-family: 'JetBrains Mono', monospace; color: #f0f0f0;"></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(42,42,42,0.5);">
+                <span style="color: #999;">Industry Adjustment</span>
+                <span id="result-industry-adj" style="font-family: 'JetBrains Mono', monospace;"></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(42,42,42,0.5);">
+                <span style="color: #999;">Recurring Revenue Adjustment</span>
+                <span id="result-recurring-adj" style="font-family: 'JetBrains Mono', monospace;"></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid rgba(42,42,42,0.5);">
+                <span style="color: #999;">Owner Dependency Adjustment</span>
+                <span id="result-owner-adj" style="font-family: 'JetBrains Mono', monospace;"></span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 0 0;">
+                <span style="color: #f0f0f0; font-weight: 700;">Final Multiple Range</span>
+                <span id="result-final-multiple" style="font-family: 'JetBrains Mono', monospace; color: #C9A84C; font-weight: 500; font-size: 1.1rem;"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insight Card -->
+        <div id="insight-card" style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px; margin-bottom: 40px; box-shadow: 0 4px 24px rgba(0,0,0,0.3);">
+          <h3 style="font-weight: 700; font-size: 1.1rem; color: #f0f0f0; margin: 0 0 12px; letter-spacing: -0.02em;">What This Means</h3>
+          <p id="insight-text" style="color: #999; margin: 0; font-size: 0.95rem; line-height: 1.7;"></p>
+        </div>
+
+        <!-- Training Unlock CTA -->
+        <div style="background: linear-gradient(180deg, rgba(201,168,76,0.03) 0%, #1a1a1a 100%); border: 1px solid rgba(201,168,76,0.15); border-radius: 2px; padding: 48px 32px; box-shadow: 0 8px 40px rgba(0,0,0,0.3); position: relative; text-align: center;">
+          <div style="position: absolute; top: -1px; left: 32px; right: 32px; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);"></div>
+
+          <h2 style="font-weight: 800; font-size: clamp(1.4rem, 3.5vw, 1.8rem); letter-spacing: -0.035em; line-height: 1.2; color: #f0f0f0; margin: 0 0 12px;">Want to Know Exactly How to <span style="color: #C9A84C;">Increase This Number?</span></h2>
+          <p style="font-size: 0.95rem; color: #999; max-width: 420px; margin: 0 auto 32px; line-height: 1.6;">Get the free 3-step training that shows you exactly which levers to pull - with real math and case studies from owners like you.</p>
+
+          <!-- Objection strip -->
+          <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 28px;">
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #666;"><span style="color: #34C759;">&#10003;</span> Free training</div>
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #666;"><span style="color: #34C759;">&#10003;</span> 15-minute read</div>
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #666;"><span style="color: #34C759;">&#10003;</span> No cold calls</div>
+          </div>
+
+          <form action="https://arena-api.jean-475.workers.dev/api/lead-capture/upgrade" method="POST" id="upgrade-form" style="max-width: 400px; margin: 0 auto;">
+            <input type="hidden" name="source" value="satellite-valuation">
+            <input type="hidden" name="step" value="training-unlock">
+            <input type="hidden" name="redirect" value="https://vivianashford.github.io/satellite-valuation/training.html">
+            <input type="hidden" id="hidden-email" name="email" value="">
+
+            <div style="margin-bottom: 12px;">
+              <label for="upgrade-name" style="display: block; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 8px; text-align: left;">Your Name</label>
+              <input type="text" id="upgrade-name" name="name" placeholder="John Smith" required autocomplete="name" style="width: 100%; min-height: 50px; padding: 14px 16px; font-family: 'Inter', sans-serif; font-size: 17px; color: #f0f0f0; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; outline: none; -webkit-appearance: none; appearance: none; box-sizing: border-box; transition: border-color 0.25s ease;" onfocus="this.style.borderColor='#C9A84C';" onblur="this.style.borderColor='#2a2a2a';">
+            </div>
+
+            <div style="margin-bottom: 12px;">
+              <label for="upgrade-phone" style="display: block; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 8px; text-align: left;">Phone Number</label>
+              <input type="tel" id="upgrade-phone" name="phone" placeholder="(555) 123-4567" required autocomplete="tel" inputmode="tel" style="width: 100%; min-height: 50px; padding: 14px 16px; font-family: 'Inter', sans-serif; font-size: 17px; color: #f0f0f0; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; outline: none; -webkit-appearance: none; appearance: none; box-sizing: border-box; transition: border-color 0.25s ease;" onfocus="this.style.borderColor='#C9A84C';" onblur="this.style.borderColor='#2a2a2a';">
+            </div>
+
+            <button type="submit" id="upgrade-btn" style="width: 100%; min-height: 56px; padding: 18px 32px; margin-top: 8px; font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; color: #0a0a0a; background: #C9A84C; border: none; border-radius: 2px; cursor: pointer; transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.background='#D4B65C'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 12px 40px rgba(201,168,76,0.15)';" onmouseout="this.style.background='#C9A84C'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">Get My Free Valuation Training &rarr;</button>
+
+            <p style="color: #555; font-size: 0.8rem; margin: 14px 0 0; line-height: 1.5;"><span style="font-size: 0.75rem;">&#128274;</span> We'll send the training link to your phone. No cold calls.</p>
+          </form>
+
+          <p style="color: #999; font-size: 0.82rem; margin: 24px 0 0; padding-top: 20px; border-top: 1px solid #2a2a2a;"><strong style="color: #C9A84C;">5,000+</strong> owners have used this training to increase their exit value</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRIDE CLOSE -->
+  <section style="padding: 64px 20px; text-align: center;">
+    <p style="color: #555; font-size: 1.1rem; font-style: italic; font-weight: 400; margin: 0;">You built something worth protecting. Make sure you get paid for it.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding: 48px 20px; text-align: center; color: #555; font-size: 0.8rem; border-top: 1px solid #2a2a2a;">
+    <div style="margin-bottom: 16px;">
+      <a href="https://thearenapartners.com" style="color: #555; text-decoration: none; margin: 0 16px;">The Arena Partners</a>
+      <a href="index.html" style="color: #555; text-decoration: none; margin: 0 16px;">Valuation Guide</a>
+      <a href="https://thearenapartners.com/privacy" style="color: #555; text-decoration: none; margin: 0 16px;">Privacy</a>
+    </div>
+    <p style="margin: 0;">&copy; 2026 The Arena Partners. All rights reserved.</p>
+  </footer>
+
+  <style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .calc-step > div { padding: 32px 20px !important; }
+    }
+  </style>
+
+  <script>
+    // ==================== CALCULATOR LOGIC ====================
+
+    var currentStep = 1;
+    var userEmail = '';
+
+    // Get email from URL params (carried from page 1)
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      userEmail = params.get('email') || '';
+      document.getElementById('hidden-email').value = userEmail;
+    })();
+
+    // Format number as currency
+    function formatCurrency(num) {
+      if (num >= 1000000) {
+        return '$' + (num / 1000000).toFixed(1) + 'M';
+      } else if (num >= 1000) {
+        return '$' + (num / 1000).toFixed(0) + 'K';
+      }
+      return '$' + num.toFixed(0);
+    }
+
+    function formatFullCurrency(num) {
+      return '$' + num.toLocaleString('en-US');
+    }
+
+    // Revenue input formatting
+    var revenueInput = document.getElementById('calc-revenue');
+    revenueInput.addEventListener('input', function() {
+      var raw = this.value.replace(/[^0-9]/g, '');
+      if (raw) {
+        this.value = parseInt(raw).toLocaleString('en-US');
+        var num = parseInt(raw);
+        var tierText = '';
+        if (num < 1000000) tierText = 'Under $1M - base multiple 2.0-3.0x';
+        else if (num < 3000000) tierText = '$1-3M tier - base multiple 3.0-4.5x';
+        else if (num < 5000000) tierText = '$3-5M tier - base multiple 4.0-5.5x';
+        else if (num < 10000000) tierText = '$5-10M tier - base multiple 5.0-6.5x';
+        else if (num < 25000000) tierText = '$10-25M tier - base multiple 5.5-7.5x';
+        else tierText = '$25M+ tier - base multiple 6.5-8.5x';
+        document.getElementById('revenue-tier').textContent = tierText;
+        enableBtn('next-2');
+      } else {
+        this.value = '';
+        document.getElementById('revenue-tier').textContent = '';
+        disableBtn('next-2');
+      }
+    });
+
+    // Step 1: Business type
+    document.getElementById('calc-business-type').addEventListener('change', function() {
+      enableBtn('next-1');
+    });
+
+    // Step 3: Margin
+    document.getElementById('calc-margin').addEventListener('change', function() {
+      var revenue = parseInt(revenueInput.value.replace(/[^0-9]/g, '')) || 0;
+      var margin = parseFloat(this.value);
+      if (revenue && margin) {
+        var ebitda = revenue * margin;
+        document.getElementById('ebitda-preview').textContent = 'Estimated EBITDA: ' + formatCurrency(ebitda);
+      }
+      enableBtn('next-3');
+    });
+
+    // Step 4: Recurring revenue radios
+    document.querySelectorAll('input[name="recurring"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        enableBtn('next-4');
+        // Highlight selected
+        document.querySelectorAll('#recurring-options label').forEach(function(l) {
+          l.style.borderColor = '#2a2a2a';
+        });
+        this.closest('label').style.borderColor = '#C9A84C';
+      });
+    });
+
+    // Step 5: Owner dependency radios
+    document.querySelectorAll('input[name="owner"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        enableBtn('next-5');
+        document.querySelectorAll('#owner-options label').forEach(function(l) {
+          l.style.borderColor = '#2a2a2a';
+        });
+        this.closest('label').style.borderColor = '#C9A84C';
+      });
+    });
+
+    function enableBtn(id) {
+      var btn = document.getElementById(id);
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      btn.style.pointerEvents = 'auto';
+    }
+    function disableBtn(id) {
+      var btn = document.getElementById(id);
+      btn.disabled = true;
+      btn.style.opacity = '0.4';
+      btn.style.pointerEvents = 'none';
+    }
+
+    function nextStep(step) {
+      var current = document.getElementById('step-' + currentStep);
+      current.style.opacity = '0';
+      current.style.transform = 'translateY(-24px)';
+      setTimeout(function() {
+        current.style.display = 'none';
+        var next = document.getElementById('step-' + step);
+        next.style.display = 'block';
+        setTimeout(function() {
+          next.style.opacity = '1';
+          next.style.transform = 'translateY(0)';
+        }, 50);
+        currentStep = step;
+        updateDots();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 300);
+    }
+
+    function prevStep(step) {
+      var current = document.getElementById('step-' + currentStep);
+      current.style.opacity = '0';
+      current.style.transform = 'translateY(24px)';
+      setTimeout(function() {
+        current.style.display = 'none';
+        var prev = document.getElementById('step-' + step);
+        prev.style.display = 'block';
+        setTimeout(function() {
+          prev.style.opacity = '1';
+          prev.style.transform = 'translateY(0)';
+        }, 50);
+        currentStep = step;
+        updateDots();
+      }, 300);
+    }
+
+    function updateDots() {
+      var dots = document.querySelectorAll('.step-dot');
+      dots.forEach(function(dot, i) {
+        dot.style.background = (i < currentStep) ? '#C9A84C' : '#2a2a2a';
+      });
+      document.getElementById('step-counter').textContent = currentStep + ' / 5';
+    }
+
+    // ==================== VALUATION CALCULATION ====================
+
+    function getBaseMultiple(revenue) {
+      if (revenue < 1000000) return { low: 2.0, high: 3.0 };
+      if (revenue < 3000000) return { low: 3.0, high: 4.5 };
+      if (revenue < 5000000) return { low: 4.0, high: 5.5 };
+      if (revenue < 10000000) return { low: 5.0, high: 6.5 };
+      if (revenue < 25000000) return { low: 5.5, high: 7.5 };
+      return { low: 6.5, high: 8.5 };
+    }
+
+    function getIndustryAdj(type) {
+      var map = {
+        'Pest Control': 0.5,
+        'HVAC': 0.25,
+        'Plumbing': 0,
+        'Electrical': 0,
+        'Roofing': -0.25,
+        'Landscaping': -0.5,
+        'Other Service': 0
+      };
+      return map[type] || 0;
+    }
+
+    function getRecurringAdj(val) {
+      var map = {
+        '0-10': -0.5,
+        '10-20': 0,
+        '20-30': 0.5,
+        '30-40': 0.75,
+        '40+': 1.0
+      };
+      return map[val] || 0;
+    }
+
+    function getOwnerAdj(val) {
+      var map = {
+        'high': -1.0,
+        'medium': -0.5,
+        'low': 0.5
+      };
+      return map[val] || 0;
+    }
+
+    function calculateValuation() {
+      var businessType = document.getElementById('calc-business-type').value;
+      var revenue = parseInt(revenueInput.value.replace(/[^0-9]/g, ''));
+      var margin = parseFloat(document.getElementById('calc-margin').value);
+      var recurring = document.querySelector('input[name="recurring"]:checked').value;
+      var owner = document.querySelector('input[name="owner"]:checked').value;
+
+      var ebitda = revenue * margin;
+      var base = getBaseMultiple(revenue);
+      var industryAdj = getIndustryAdj(businessType);
+      var recurringAdj = getRecurringAdj(recurring);
+      var ownerAdj = getOwnerAdj(owner);
+
+      var totalAdj = industryAdj + recurringAdj + ownerAdj;
+      var finalLow = Math.max(base.low + totalAdj, 1.5);
+      var finalHigh = Math.max(base.high + totalAdj, 2.0);
+
+      var valuationLow = ebitda * finalLow;
+      var valuationHigh = ebitda * finalHigh;
+
+      // Hide step 5
+      var step5 = document.getElementById('step-5');
+      step5.style.opacity = '0';
+      step5.style.transform = 'translateY(-24px)';
+
+      setTimeout(function() {
+        step5.style.display = 'none';
+
+        // Populate results
+        document.getElementById('valuation-range').textContent = formatCurrency(valuationLow) + ' - ' + formatCurrency(valuationHigh);
+        document.getElementById('result-revenue').textContent = formatFullCurrency(revenue);
+        document.getElementById('result-margin').textContent = (margin * 100).toFixed(0) + '%';
+        document.getElementById('result-ebitda').textContent = formatCurrency(ebitda);
+        document.getElementById('result-industry-name').textContent = businessType;
+        document.getElementById('result-base-multiple').textContent = base.low.toFixed(1) + 'x - ' + base.high.toFixed(1) + 'x';
+
+        // Format adjustments with +/- and color
+        function formatAdj(val, label) {
+          var el = document.getElementById(label);
+          if (val > 0) {
+            el.textContent = '+' + val.toFixed(2) + 'x';
+            el.style.color = '#34C759';
+          } else if (val < 0) {
+            el.textContent = val.toFixed(2) + 'x';
+            el.style.color = '#FF3B30';
+          } else {
+            el.textContent = '0.00x';
+            el.style.color = '#666';
+          }
+        }
+        formatAdj(industryAdj, 'result-industry-adj');
+        formatAdj(recurringAdj, 'result-recurring-adj');
+        formatAdj(ownerAdj, 'result-owner-adj');
+
+        document.getElementById('result-final-multiple').textContent = finalLow.toFixed(1) + 'x - ' + finalHigh.toFixed(1) + 'x';
+
+        // Gauge position (0-100 based on where avg multiple falls in 1.5-9.5 range)
+        var avgMultiple = (finalLow + finalHigh) / 2;
+        var gaugePercent = Math.min(Math.max(((avgMultiple - 1.5) / 8) * 100, 5), 95);
+        document.getElementById('gauge-marker').style.left = 'calc(' + gaugePercent + '% - 10px)';
+
+        // Valuation label with color
+        var labelEl = document.getElementById('valuation-label');
+        if (gaugePercent < 35) {
+          labelEl.textContent = 'Below market average - significant room for improvement';
+          labelEl.style.color = '#FF3B30';
+        } else if (gaugePercent < 65) {
+          labelEl.textContent = 'At market - solid foundation with room to optimize';
+          labelEl.style.color = '#C9A84C';
+        } else {
+          labelEl.textContent = 'Above market average - strong position for exit';
+          labelEl.style.color = '#34C759';
+        }
+
+        // Insight text
+        var insights = [];
+        if (ownerAdj < 0) {
+          insights.push('Your owner dependency is reducing your multiple by ' + Math.abs(ownerAdj).toFixed(1) + 'x. Fixing this alone could add ' + formatCurrency(ebitda * Math.abs(ownerAdj)) + ' to your exit price.');
+        }
+        if (recurringAdj < 0) {
+          insights.push('Low recurring revenue is costing you. Shifting just 10% of project revenue to contracts could increase your multiple by 0.5-1.0x.');
+        }
+        if (recurringAdj >= 0.5) {
+          insights.push('Your recurring revenue is a significant strength. Buyers will pay a premium for that predictability.');
+        }
+        if (ownerAdj > 0) {
+          insights.push('Low owner dependency is a major advantage. This makes your business highly attractive to PE buyers.');
+        }
+        if (insights.length === 0) {
+          insights.push('Your business is positioned in the middle of the market. There are clear levers you can pull to push into premium territory.');
+        }
+        document.getElementById('insight-text').textContent = insights.join(' ');
+
+        // Show results
+        var results = document.getElementById('results');
+        results.style.display = 'block';
+        setTimeout(function() {
+          results.style.opacity = '1';
+          results.style.transform = 'translateY(0)';
+          window.scrollTo({ top: results.offsetTop - 100, behavior: 'smooth' });
+        }, 50);
+
+        // Update dots to all gold
+        var dots = document.querySelectorAll('.step-dot');
+        dots.forEach(function(dot) { dot.style.background = '#C9A84C'; });
+        document.getElementById('step-counter').textContent = 'Done';
+
+        // Build redirect URL with params for training page personalization
+        var redirectBase = 'https://vivianashford.github.io/satellite-valuation/training.html';
+        var redirectParams = new URLSearchParams();
+        if (userEmail) redirectParams.set('email', userEmail);
+        redirectParams.set('business_type', businessType);
+        redirectParams.set('revenue', formatFullCurrency(revenue));
+        redirectParams.set('valuation', formatCurrency(valuationLow) + ' - ' + formatCurrency(valuationHigh));
+        var upgradeRedirect = redirectBase + '?' + redirectParams.toString();
+        document.querySelector('#upgrade-form input[name="redirect"]').value = upgradeRedirect;
+
+      }, 400);
+    }
+
+    // Loading state for upgrade form
+    document.getElementById('upgrade-form').addEventListener('submit', function() {
+      var btn = document.getElementById('upgrade-btn');
+      btn.textContent = 'Unlocking Training...';
+      btn.style.opacity = '0.7';
+      btn.style.pointerEvents = 'none';
+    });
+  </script>
+
+</body>
+</html>

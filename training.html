@@ -833,14 +833,20 @@
       var name = params.get('name');
       var revenue = params.get('revenue');
       var businessType = params.get('business_type');
+      var valuation = params.get('valuation');
+      var phone = params.get('phone');
 
-      if (name || revenue || businessType) {
+      if (name || revenue || businessType || valuation) {
         var el = document.getElementById('personalization');
         var text = document.getElementById('personalization-text');
         var parts = [];
 
         if (name) {
           parts.push('Welcome, <strong>' + name.split(' ')[0] + '</strong>.');
+        }
+
+        if (valuation) {
+          parts.push('Your estimated valuation: <strong>' + valuation + '</strong>.');
         }
 
         if (revenue && businessType) {

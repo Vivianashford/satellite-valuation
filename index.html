@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>What Is My Service Business Actually Worth? | Free Valuation Guide</title>
-  <meta name="description" content="Find out what your service business is really worth. Industry-specific EBITDA multiples, real buyer math, and a free training to increase your exit price before you sell.">
+  <title>What Is My Service Business Actually Worth? | Free Valuation Calculator</title>
+  <meta name="description" content="Find out what your service business is really worth. Industry-specific EBITDA multiples, real buyer math, and a free interactive calculator to estimate your exit price.">
   <meta name="keywords" content="what is my business worth, business valuation calculator, service business valuation, how much is my business worth, EBITDA multiple, business exit price">
   <link rel="canonical" href="https://vivianashford.github.io/satellite-valuation/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="What Is Your Service Business Actually Worth?">
-  <meta property="og:description" content="Most owners overestimate by 40%. Here's how buyers really calculate your exit price - with real industry multiples and a free training.">
+  <meta property="og:description" content="Most owners overestimate by 40%. Here's how buyers really calculate your exit price - and a free calculator to see your number.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vivianashford.github.io/satellite-valuation/">
   <meta property="og:site_name" content="The Arena Partners">
@@ -25,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
-  <!-- Schema.org - WebSite -->
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,8 +39,6 @@
     }
   }
   </script>
-
-  <!-- Schema.org - FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,7 +65,7 @@
         "name": "Why do most business owners get a lower price than expected?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "According to industry data, approximately 73% of business owners receive a lower offer than they expected. The three main reasons are high owner dependency (the business can't run without the owner), customer concentration (top 3 clients represent more than 30% of revenue), and low recurring revenue (less than 20% of revenue on contract)."
+          "text": "According to industry data, approximately 73% of business owners receive a lower offer than they expected. The three main reasons are high owner dependency, customer concentration, and low recurring revenue."
         }
       }
     ]
@@ -82,1007 +80,293 @@
     gtag('js', new Date());
     gtag('config', 'G-SDMM90P63D');
   </script>
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0a0a0a;
-      color: #f0f0f0;
-      line-height: 1.75;
-      font-size: 17px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
-    a { color: #C9A84C; text-decoration: none; transition: color 0.2s ease; }
-    a:hover { color: #D4B65C; }
-
-    /* Container */
-    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
-    @media (max-width: 600px) { .container { padding: 0 20px; } }
-
-    /* ========== HERO ========== */
-    .hero {
-      min-height: 100vh;
-      min-height: 100svh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 20px 60px;
-      position: relative;
-    }
-    .hero-eyebrow {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #C9A84C;
-      margin-bottom: 32px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.2s forwards;
-    }
-    .hero h1 {
-      font-family: 'Inter', sans-serif;
-      font-weight: 900;
-      font-size: clamp(2.6rem, 7vw, 4.2rem);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      color: #f0f0f0;
-      margin-bottom: 28px;
-      max-width: 680px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.4s forwards;
-    }
-    .hero h1 span {
-      color: #C9A84C;
-    }
-    .hero-sub {
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
-      color: #999;
-      line-height: 1.6;
-      max-width: 480px;
-      margin: 0 auto 40px;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.6s forwards;
-    }
-    .hero-cta {
-      display: inline-block;
-      padding: 18px 40px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #0a0a0a;
-      background: #C9A84C;
-      border-radius: 2px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
-      text-decoration: none;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.8s forwards;
-    }
-    .hero-cta:hover {
-      background: #D4B65C;
-      color: #0a0a0a;
-      transform: translateY(-1px);
-      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
-    }
-    .hero-proof {
-      margin-top: 20px;
-      font-size: 0.85rem;
-      color: #666;
-      opacity: 0;
-      animation: fadeUp 0.8s ease 1.0s forwards;
-    }
-    .hero-proof strong {
-      color: #999;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ========== SECTIONS ========== */
-    .section {
-      padding: 80px 0;
-    }
-    @media (max-width: 600px) {
-      .section { padding: 48px 0; }
-    }
-
-    .section-label {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #C9A84C;
-      margin-bottom: 20px;
-      display: block;
-    }
-    .section-title {
-      font-family: 'Inter', sans-serif;
-      font-weight: 800;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      line-height: 1.12;
-      letter-spacing: -0.035em;
-      color: #f0f0f0;
-      margin-bottom: 20px;
-    }
-    .section-intro {
-      font-size: 1.05rem;
-      color: #999;
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 48px;
-    }
-
-    /* Divider */
-    .divider {
-      height: 1px;
-      background: #2a2a2a;
-      border: none;
-      margin: 0;
-    }
-    .divider-gradient {
-      height: 1px;
-      border: none;
-      margin: 0;
-      background: linear-gradient(90deg, transparent, #2a2a2a 20%, #2a2a2a 80%, transparent);
-    }
-
-    /* ========== STAT BLOCKS ========== */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 48px 0;
-    }
-    .stat-block {
-      background: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      border-radius: 2px;
-      padding: 32px 20px;
-      text-align: center;
-    }
-    .stat-number {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      color: #C9A84C;
-      line-height: 1.1;
-      margin-bottom: 8px;
-    }
-    .stat-label {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #666;
-    }
-    @media (max-width: 600px) {
-      .stats-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ========== CARDS ========== */
-    .card {
-      background: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      border-radius: 2px;
-      padding: 32px;
-      margin-bottom: 20px;
-      transition: border-color 0.2s ease;
-    }
-    .card-elevated {
-      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.2);
-    }
-    .card-gold {
-      border-color: rgba(201, 168, 76, 0.2);
-      background: linear-gradient(180deg, rgba(201, 168, 76, 0.03) 0%, #1a1a1a 100%);
-    }
-    .card h3 {
-      font-family: 'Inter', sans-serif;
-      font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: -0.02em;
-      color: #f0f0f0;
-      margin-bottom: 16px;
-      line-height: 1.3;
-    }
-    .card p { color: #999; margin-bottom: 16px; }
-    .card p:last-child { margin-bottom: 0; }
-    @media (max-width: 600px) {
-      .card { padding: 24px; }
-    }
-
-    /* ========== DATA TABLE (Bloomberg feel) ========== */
-    .table-wrap {
-      margin: 28px 0;
-      border: 1px solid #2a2a2a;
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .data-table th {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #666;
-      background: #111;
-      padding: 14px 16px;
-      text-align: left;
-      border-bottom: 1px solid #2a2a2a;
-    }
-    .data-table td {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      color: #f0f0f0;
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(42, 42, 42, 0.5);
-    }
-    .data-table tbody tr:nth-child(odd) { background: #141414; }
-    .data-table tbody tr:nth-child(even) { background: #1a1a1a; }
-    .data-table tbody tr:last-child td { border-bottom: none; }
-    .data-table .mono {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
-    }
-    .data-table .text-green { color: #34C759; }
-    @media (max-width: 600px) {
-      .data-table th, .data-table td { padding: 12px 10px; font-size: 0.85rem; }
-      .data-table th { font-size: 9px; }
-    }
-    .table-source {
-      font-size: 0.8rem;
-      color: #666;
-      margin-top: 12px;
-      line-height: 1.5;
-    }
-
-    /* ========== MATH BLOCK ========== */
-    .math-block {
-      background: #111;
-      border: 1px solid #2a2a2a;
-      border-radius: 2px;
-      padding: 28px;
-      margin: 24px 0;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.88rem;
-      font-weight: 500;
-      line-height: 2.1;
-      color: #999;
-    }
-    .math-block .result { color: #34C759; font-size: 0.95rem; }
-    .math-block .loss { color: #FF3B30; }
-    .math-block .highlight { color: #f0f0f0; font-weight: 500; }
-
-    /* ========== CHECKLIST ========== */
-    .check-list { list-style: none; padding: 0; }
-    .check-list li {
-      padding: 16px 0 16px 40px;
-      position: relative;
-      border-bottom: 1px solid rgba(42, 42, 42, 0.6);
-      color: #f0f0f0;
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-    .check-list li:last-child { border-bottom: none; }
-    .check-list li::before {
-      content: '\2713';
-      position: absolute;
-      left: 0;
-      top: 16px;
-      color: #C9A84C;
-      font-weight: 700;
-      font-size: 1rem;
-    }
-    .check-list li strong { color: #f0f0f0; }
-    .check-list li span { color: #666; }
-
-    /* ========== NUMBERED LIST ========== */
-    .numbered-list { list-style: none; padding: 0; counter-reset: step; }
-    .numbered-list li {
-      padding: 24px 0 24px 60px;
-      position: relative;
-      border-bottom: 1px solid rgba(42, 42, 42, 0.6);
-      counter-increment: step;
-    }
-    .numbered-list li:last-child { border-bottom: none; }
-    .numbered-list li::before {
-      content: counter(step);
-      position: absolute;
-      left: 0;
-      top: 24px;
-      width: 40px;
-      height: 40px;
-      background: rgba(201, 168, 76, 0.08);
-      border: 1px solid rgba(201, 168, 76, 0.15);
-      color: #C9A84C;
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
-      font-size: 0.85rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .numbered-list li strong { color: #f0f0f0; display: block; margin-bottom: 4px; }
-    .numbered-list li span { color: #666; font-size: 0.95rem; }
-
-    /* ========== FORM SECTION ========== */
-    .form-section {
-      padding: 100px 0 80px;
-      position: relative;
-    }
-    .form-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(201, 168, 76, 0.03) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    @media (max-width: 600px) {
-      .form-section { padding: 64px 0 48px; }
-    }
-
-    .form-header {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-    .form-header-label {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #C9A84C;
-      margin-bottom: 20px;
-      display: block;
-    }
-    .form-header h2 {
-      font-family: 'Inter', sans-serif;
-      font-weight: 800;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      letter-spacing: -0.035em;
-      line-height: 1.15;
-      color: #f0f0f0;
-      margin-bottom: 16px;
-    }
-    .form-header p {
-      font-size: 1.05rem;
-      color: #999;
-      max-width: 460px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    /* Objection handler above form */
-    .objection-strip {
-      max-width: 480px;
-      margin: 0 auto 24px;
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .objection-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      color: #666;
-    }
-    .objection-item .icon {
-      color: #34C759;
-      font-size: 0.9rem;
-    }
-
-    .form-box {
-      background: #1a1a1a;
-      border: 1px solid rgba(201, 168, 76, 0.12);
-      border-radius: 2px;
-      padding: 48px 40px;
-      max-width: 480px;
-      margin: 0 auto;
-      position: relative;
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
-    }
-    .form-box::before {
-      content: '';
-      position: absolute;
-      top: -1px;
-      left: 40px;
-      right: 40px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.35), transparent);
-    }
-    @media (max-width: 600px) {
-      .form-box { padding: 32px 20px; }
-      .form-box::before { left: 20px; right: 20px; }
-    }
-
-    .form-group { margin-bottom: 20px; }
-    .form-label {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #999;
-      margin-bottom: 8px;
-    }
-    .form-input,
-    .form-select {
-      width: 100%;
-      min-height: 50px;
-      padding: 14px 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 17px;
-      color: #f0f0f0;
-      background: #111;
-      border: 1px solid #2a2a2a;
-      border-radius: 2px;
-      outline: none;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-    .form-input:focus,
-    .form-select:focus {
-      border-color: #C9A84C;
-      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.08);
-    }
-    .form-input::placeholder { color: #555; }
-    .form-select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 16px center;
-      padding-right: 40px;
-    }
-    .form-select option { background: #141414; color: #f0f0f0; }
-
-    .form-submit {
-      width: 100%;
-      min-height: 56px;
-      padding: 18px 32px;
-      margin-top: 12px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: #0a0a0a;
-      background: #C9A84C;
-      border: none;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .form-submit:hover {
-      background: #D4B65C;
-      transform: translateY(-1px);
-      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
-    }
-    .form-submit:active { transform: translateY(0); }
-
-    /* Micro-copy below submit */
-    .form-micro {
-      text-align: center;
-      color: #555;
-      font-size: 0.8rem;
-      margin-top: 16px;
-      line-height: 1.5;
-    }
-    .form-micro .lock-icon {
-      display: inline-block;
-      margin-right: 4px;
-      font-size: 0.75rem;
-    }
-
-    .form-proof {
-      text-align: center;
-      color: #999;
-      font-size: 0.85rem;
-      margin-top: 24px;
-      letter-spacing: 0.01em;
-      padding-top: 20px;
-      border-top: 1px solid #2a2a2a;
-    }
-    .form-proof strong {
-      color: #C9A84C;
-    }
-
-    /* What happens next */
-    .next-steps {
-      max-width: 480px;
-      margin: 28px auto 0;
-      text-align: center;
-    }
-    .next-steps-title {
-      font-family: 'Inter', sans-serif;
-      font-weight: 600;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #666;
-      margin-bottom: 16px;
-    }
-    .next-steps-list {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .next-step {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      color: #666;
-    }
-    .next-step .num {
-      width: 24px;
-      height: 24px;
-      background: rgba(201, 168, 76, 0.08);
-      border: 1px solid rgba(201, 168, 76, 0.15);
-      color: #C9A84C;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    /* ========== TRUST BAR ========== */
-    .trust-bar {
-      text-align: center;
-      padding: 32px 20px;
-      color: #555;
-      font-size: 0.8rem;
-      letter-spacing: 0.02em;
-    }
-    .trust-bar span { display: inline-block; margin: 0 16px; }
-
-    /* ========== PRIDE CLOSE ========== */
-    .pride-close {
-      padding: 64px 20px;
-      text-align: center;
-    }
-    .pride-close p {
-      color: #555;
-      font-size: 1.1rem;
-      font-style: italic;
-      letter-spacing: -0.01em;
-      font-weight: 400;
-    }
-
-    /* ========== FOOTER ========== */
-    footer {
-      padding: 48px 20px;
-      text-align: center;
-      color: #555;
-      font-size: 0.8rem;
-      border-top: 1px solid #2a2a2a;
-    }
-    footer a { color: #555; transition: color 0.2s ease; }
-    footer a:hover { color: #C9A84C; }
-    .footer-links { margin-bottom: 16px; }
-    .footer-links a { margin: 0 16px; }
-
-    /* ========== SCROLL REVEALS ========== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ========== CTA INLINE ========== */
-    .cta-inline {
-      text-align: center;
-      margin: 48px 0 0;
-    }
-    .cta-inline a {
-      display: inline-block;
-      padding: 18px 40px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: #0a0a0a;
-      background: #C9A84C;
-      border-radius: 2px;
-      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .cta-inline a:hover {
-      background: #D4B65C;
-      color: #0a0a0a;
-      transform: translateY(-1px);
-      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
-    }
-    .cta-inline-proof {
-      margin-top: 12px;
-      font-size: 0.82rem;
-      color: #555;
-    }
-    @media (max-width: 600px) {
-      .cta-inline a { display: block; width: 100%; }
-    }
-
-    /* ========== STICKY CTA (mobile) ========== */
-    .sticky-cta {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 999;
-      background: rgba(10, 10, 10, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(201, 168, 76, 0.15);
-      padding: 12px 20px;
-      text-align: center;
-    }
-    .sticky-cta.visible { display: block; }
-    .sticky-cta a {
-      display: block;
-      width: 100%;
-      padding: 16px 24px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: #0a0a0a;
-      background: #C9A84C;
-      border-radius: 2px;
-      text-decoration: none;
-    }
-    @media (min-width: 601px) {
-      .sticky-cta { display: none !important; }
-    }
-  </style>
 </head>
-<body>
+<body style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.75; font-size: 17px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; margin: 0; padding: 0; overflow-x: hidden;">
 
   <!-- ==================== HERO ==================== -->
-  <section class="hero">
-    <div class="hero-eyebrow">For Service Business Owners Doing $5M-$50M</div>
-    <h1>What Is Your Service<br>Business <span>Actually Worth?</span></h1>
-    <p class="hero-sub">73% of owners get a lower offer than expected. Here's the exact formula buyers use - and how to fix the 3 things killing your price.</p>
-    <a href="#get-training" class="hero-cta">Show Me the Buyer's Formula</a>
-    <p class="hero-proof"><strong>5,000+</strong> service business owners have used this training</p>
+  <section style="min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 20px 60px; position: relative;">
+    <div style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: #C9A84C; margin-bottom: 32px; opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;">For Service Business Owners Doing $5M-$50M</div>
+    <h1 style="font-weight: 900; font-size: clamp(2.6rem, 7vw, 4.2rem); line-height: 1.08; letter-spacing: -0.04em; color: #f0f0f0; margin: 0 0 28px; max-width: 680px; opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards;">What Is Your Service<br>Business <span style="color: #C9A84C;">Actually Worth?</span></h1>
+    <p style="font-weight: 400; font-size: clamp(1.05rem, 2.5vw, 1.25rem); color: #999; line-height: 1.6; max-width: 480px; margin: 0 auto 40px; opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards;">73% of owners get a lower offer than expected. Learn the exact formula buyers use - then calculate your number for free.</p>
+    <a href="#get-calculator" style="display: inline-block; padding: 18px 40px; font-size: 1rem; font-weight: 700; color: #0a0a0a; background: #C9A84C; border-radius: 2px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease; opacity: 0; animation: fadeUp 0.8s ease 0.8s forwards; cursor: pointer;" onmouseover="this.style.background='#D4B65C'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 12px 40px rgba(201,168,76,0.15)';" onmouseout="this.style.background='#C9A84C'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">Unlock the Free Calculator &rarr;</a>
+    <p style="margin-top: 20px; font-size: 0.85rem; color: #666; opacity: 0; animation: fadeUp 0.8s ease 1.0s forwards;"><strong style="color: #999;">5,000+</strong> service business owners have used this tool</p>
   </section>
 
-  <hr class="divider-gradient">
+  <hr style="height: 1px; border: none; margin: 0; background: linear-gradient(90deg, transparent, #2a2a2a 20%, #2a2a2a 80%, transparent);">
 
   <!-- ==================== THE 3 NUMBERS ==================== -->
-  <section class="section">
-    <div class="container">
-      <div class="reveal">
-        <span class="section-label">The Formula</span>
-        <h2 class="section-title">The 3 Numbers That Determine<br>Your Exit Price</h2>
-        <p class="section-intro">Forget what your accountant told you. Forget what your buddy sold his business for. Buyers use one formula, and it comes down to three numbers.</p>
+  <section style="padding: 80px 0;" class="section-desktop">
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 24px;">
+      <div class="reveal" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <span style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: #C9A84C; margin-bottom: 20px; display: block;">The Formula</span>
+        <h2 style="font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.12; letter-spacing: -0.035em; color: #f0f0f0; margin: 0 0 20px;">The 3 Numbers That Determine<br>Your Exit Price</h2>
+        <p style="font-size: 1.05rem; color: #999; max-width: 560px; line-height: 1.7; margin-bottom: 48px;">Forget what your accountant told you. Forget what your buddy sold his business for. Buyers use one formula, and it comes down to three numbers.</p>
       </div>
 
-      <div class="stats-grid reveal">
-        <div class="stat-block">
-          <div class="stat-number">1</div>
-          <div class="stat-label">Adjusted EBITDA</div>
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 48px 0; opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px 20px; text-align: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #C9A84C; line-height: 1.1; margin-bottom: 8px;">1</div>
+          <div style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #666;">Adjusted EBITDA</div>
         </div>
-        <div class="stat-block">
-          <div class="stat-number">2</div>
-          <div class="stat-label">Industry Multiple</div>
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px 20px; text-align: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #C9A84C; line-height: 1.1; margin-bottom: 8px;">2</div>
+          <div style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #666;">Industry Multiple</div>
         </div>
-        <div class="stat-block">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Risk Adjustments</div>
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px 20px; text-align: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #C9A84C; line-height: 1.1; margin-bottom: 8px;">3</div>
+          <div style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #666;">Risk Adjustments</div>
         </div>
       </div>
 
-      <div class="card card-elevated reveal">
-        <h3>Adjusted EBITDA (Your Profit After Expenses)</h3>
-        <p>Start with net profit. Add back your salary, interest, depreciation, amortization, and one-time expenses. That's your adjusted EBITDA - the number buyers actually care about.</p>
-        <p style="color: #666; font-size: 0.9rem;">Example: $600K net profit + $250K owner salary + $50K one-time legal fees = <strong style="color: #C9A84C;">$900K adjusted EBITDA</strong></p>
+      <div class="reveal" style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px; margin-bottom: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2); opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <h3 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 16px; line-height: 1.3;">Adjusted EBITDA (Your Profit After Expenses)</h3>
+        <p style="color: #999; margin-bottom: 16px;">Start with net profit. Add back your salary, interest, depreciation, amortization, and one-time expenses. That's your adjusted EBITDA - the number buyers actually care about.</p>
+        <p style="color: #666; font-size: 0.9rem; margin: 0;">Example: $600K net profit + $250K owner salary + $50K one-time legal fees = <strong style="color: #C9A84C;">$900K adjusted EBITDA</strong></p>
       </div>
 
-      <div class="card card-elevated reveal">
-        <h3>Industry Multiple</h3>
-        <p>Your EBITDA gets multiplied by a number that depends on your industry, size, and risk profile. Here are the current ranges for service businesses:</p>
+      <div class="reveal" style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px; margin-bottom: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2); opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <h3 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 16px; line-height: 1.3;">Industry Multiple</h3>
+        <p style="color: #999; margin-bottom: 16px;">Your EBITDA gets multiplied by a number that depends on your industry, size, and risk profile. Here are the current ranges for service businesses:</p>
 
-        <div class="table-wrap">
-          <table class="data-table">
+        <div style="margin: 28px 0; border: 1px solid #2a2a2a; border-radius: 2px; overflow: hidden;">
+          <table style="width: 100%; border-collapse: collapse;">
             <thead>
               <tr>
-                <th>Industry</th>
-                <th>EBITDA Multiple</th>
-                <th>Notes</th>
+                <th style="font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #666; background: #111; padding: 14px 16px; text-align: left; border-bottom: 1px solid #2a2a2a;">Industry</th>
+                <th style="font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #666; background: #111; padding: 14px 16px; text-align: left; border-bottom: 1px solid #2a2a2a;">EBITDA Multiple</th>
+                <th style="font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #666; background: #111; padding: 14px 16px; text-align: left; border-bottom: 1px solid #2a2a2a;">Notes</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Pest Control</td>
-                <td class="mono text-green">6 - 9x</td>
-                <td style="color: #666;">Recurring revenue premium</td>
+              <tr style="background: #141414;">
+                <td style="font-size: 0.95rem; color: #f0f0f0; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">Pest Control</td>
+                <td style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 0.95rem; color: #34C759; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">6 - 9x</td>
+                <td style="font-size: 0.95rem; color: #666; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">Recurring revenue premium</td>
               </tr>
-              <tr>
-                <td>HVAC</td>
-                <td class="mono text-green">5 - 8x</td>
-                <td style="color: #666;">Service agreements boost value</td>
+              <tr style="background: #1a1a1a;">
+                <td style="font-size: 0.95rem; color: #f0f0f0; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">HVAC</td>
+                <td style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 0.95rem; color: #34C759; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">5 - 8x</td>
+                <td style="font-size: 0.95rem; color: #666; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">Service agreements boost value</td>
               </tr>
-              <tr>
-                <td>Plumbing</td>
-                <td class="mono" style="color: #f0f0f0;">4 - 7x</td>
-                <td style="color: #666;">Depends on maintenance contracts</td>
+              <tr style="background: #141414;">
+                <td style="font-size: 0.95rem; color: #f0f0f0; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">Plumbing</td>
+                <td style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 0.95rem; color: #f0f0f0; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">4 - 7x</td>
+                <td style="font-size: 0.95rem; color: #666; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">Depends on maintenance contracts</td>
               </tr>
-              <tr>
-                <td>Electrical</td>
-                <td class="mono" style="color: #f0f0f0;">4 - 6x</td>
-                <td style="color: #666;">Commercial contracts valued higher</td>
+              <tr style="background: #1a1a1a;">
+                <td style="font-size: 0.95rem; color: #f0f0f0; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">Electrical</td>
+                <td style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 0.95rem; color: #f0f0f0; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">4 - 6x</td>
+                <td style="font-size: 0.95rem; color: #666; padding: 14px 16px; border-bottom: 1px solid rgba(42,42,42,0.5);">Commercial contracts valued higher</td>
               </tr>
-              <tr>
-                <td>Landscaping</td>
-                <td class="mono" style="color: #f0f0f0;">3 - 5x</td>
-                <td style="color: #666;">Seasonal risk discounts apply</td>
+              <tr style="background: #141414;">
+                <td style="font-size: 0.95rem; color: #f0f0f0; padding: 14px 16px;">Landscaping</td>
+                <td style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 0.95rem; color: #f0f0f0; padding: 14px 16px;">3 - 5x</td>
+                <td style="font-size: 0.95rem; color: #666; padding: 14px 16px;">Seasonal risk discounts apply</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="table-source">Source: GF Data, PitchBook, and publicly reported service-sector transactions (2023-2025). Multiples reflect enterprise value to EBITDA for businesses between $1M and $10M EBITDA.</p>
+        <p style="font-size: 0.8rem; color: #666; margin: 12px 0 0; line-height: 1.5;">Source: GF Data, PitchBook, and publicly reported service-sector transactions (2023-2025). Multiples reflect enterprise value to EBITDA for businesses between $1M and $10M EBITDA.</p>
       </div>
 
-      <div class="card card-elevated reveal">
-        <h3>Risk Adjustments</h3>
-        <p>This is where most owners get surprised. Buyers don't just look at your revenue - they stress-test everything that could go wrong after they write the check.</p>
-        <ul class="check-list">
-          <li><strong>Owner dependency</strong> - Can it run without you for 4 weeks?</li>
-          <li><strong>Customer concentration</strong> - Do your top 3 clients make up more than 30% of revenue?</li>
-          <li><strong>Recurring revenue</strong> - What percentage is on contract vs. one-time?</li>
-          <li><strong>Employee retention</strong> - Will your key people stay post-sale?</li>
-          <li><strong>Contract backlog</strong> - How much future revenue is locked in?</li>
+      <div class="reveal" style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px; margin-bottom: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2); opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <h3 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 16px; line-height: 1.3;">Risk Adjustments</h3>
+        <p style="color: #999; margin-bottom: 16px;">This is where most owners get surprised. Buyers don't just look at your revenue - they stress-test everything that could go wrong after they write the check.</p>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="padding: 16px 0 16px 40px; position: relative; border-bottom: 1px solid rgba(42,42,42,0.6); color: #f0f0f0; font-size: 1rem; line-height: 1.65;"><span style="position: absolute; left: 0; top: 16px; color: #C9A84C; font-weight: 700;">&#10003;</span><strong>Owner dependency</strong> - Can it run without you for 4 weeks?</li>
+          <li style="padding: 16px 0 16px 40px; position: relative; border-bottom: 1px solid rgba(42,42,42,0.6); color: #f0f0f0; font-size: 1rem; line-height: 1.65;"><span style="position: absolute; left: 0; top: 16px; color: #C9A84C; font-weight: 700;">&#10003;</span><strong>Customer concentration</strong> - Do your top 3 clients make up more than 30% of revenue?</li>
+          <li style="padding: 16px 0 16px 40px; position: relative; border-bottom: 1px solid rgba(42,42,42,0.6); color: #f0f0f0; font-size: 1rem; line-height: 1.65;"><span style="position: absolute; left: 0; top: 16px; color: #C9A84C; font-weight: 700;">&#10003;</span><strong>Recurring revenue</strong> - What percentage is on contract vs. one-time?</li>
+          <li style="padding: 16px 0 16px 40px; position: relative; border-bottom: 1px solid rgba(42,42,42,0.6); color: #f0f0f0; font-size: 1rem; line-height: 1.65;"><span style="position: absolute; left: 0; top: 16px; color: #C9A84C; font-weight: 700;">&#10003;</span><strong>Employee retention</strong> - Will your key people stay post-sale?</li>
+          <li style="padding: 16px 0 16px 40px; position: relative; color: #f0f0f0; font-size: 1rem; line-height: 1.65;"><span style="position: absolute; left: 0; top: 16px; color: #C9A84C; font-weight: 700;">&#10003;</span><strong>Contract backlog</strong> - How much future revenue is locked in?</li>
         </ul>
       </div>
 
-      <div class="card card-gold card-elevated reveal">
-        <h3>Quick Example</h3>
-        <div class="math-block">
+      <div class="reveal" style="background: linear-gradient(180deg, rgba(201,168,76,0.03) 0%, #1a1a1a 100%); border: 1px solid rgba(201,168,76,0.2); border-radius: 2px; padding: 32px; margin-bottom: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2); opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <h3 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 16px; line-height: 1.3;">Quick Example</h3>
+        <div style="background: #111; border: 1px solid #2a2a2a; border-radius: 2px; padding: 28px; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; font-weight: 500; line-height: 2.1; color: #999;">
           Adjusted EBITDA: $1.2M<br>
           Industry multiple (HVAC): 6.0x<br>
-          <span class="result">Estimated value: $7.2M</span><br><br>
+          <span style="color: #34C759; font-size: 0.95rem;">Estimated value: $7.2M</span><br><br>
           But with high owner dependency...<br>
           Adjusted multiple: 4.5x<br>
-          <span class="loss">Reduced value: $5.4M</span><br><br>
-          <span class="highlight">Difference: $1.8M left on the table.</span>
+          <span style="color: #FF3B30;">Reduced value: $5.4M</span><br><br>
+          <span style="color: #f0f0f0; font-weight: 500;">Difference: $1.8M left on the table.</span>
         </div>
       </div>
 
-      <div class="cta-inline reveal">
-        <a href="#get-training">Show Me How to Fix This</a>
-        <p class="cta-inline-proof">Free training. Takes 15 minutes. No sales call.</p>
+      <div class="reveal" style="text-align: center; margin: 48px 0 0; opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <a href="#get-calculator" style="display: inline-block; padding: 18px 40px; font-size: 1rem; font-weight: 700; color: #0a0a0a; background: #C9A84C; border-radius: 2px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease; cursor: pointer;" onmouseover="this.style.background='#D4B65C'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 12px 40px rgba(201,168,76,0.15)';" onmouseout="this.style.background='#C9A84C'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">Calculate Your Number for Free</a>
+        <p style="margin-top: 12px; font-size: 0.82rem; color: #555;">Takes 2 minutes. No sales call required.</p>
       </div>
-
     </div>
   </section>
 
-  <hr class="divider-gradient">
+  <hr style="height: 1px; border: none; margin: 0; background: linear-gradient(90deg, transparent, #2a2a2a 20%, #2a2a2a 80%, transparent);">
 
   <!-- ==================== WHY OWNERS GET LESS ==================== -->
-  <section class="section">
-    <div class="container">
-      <div class="reveal">
-        <span class="section-label">The Reality</span>
-        <h2 class="section-title">Why 73% of Owners Get a Lower Price Than Expected</h2>
-        <p class="section-intro">According to the International Business Brokers Association, nearly three-quarters of business owners are disappointed by the offers they receive. The gap comes down to three fixable problems.</p>
+  <section style="padding: 80px 0;">
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 24px;">
+      <div class="reveal" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <span style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: #C9A84C; margin-bottom: 20px; display: block;">The Reality</span>
+        <h2 style="font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.12; letter-spacing: -0.035em; color: #f0f0f0; margin: 0 0 20px;">Why 73% of Owners Get a Lower Price Than Expected</h2>
+        <p style="font-size: 1.05rem; color: #999; max-width: 560px; line-height: 1.7; margin-bottom: 48px;">According to the International Business Brokers Association, nearly three-quarters of business owners are disappointed by the offers they receive. The gap comes down to three fixable problems.</p>
       </div>
 
-      <div class="card card-elevated reveal">
-        <h3>Problem 1: Owner Dependency</h3>
-        <p>If you are the business - if every big decision, every key client relationship, every crisis runs through you - a buyer sees a ticking clock. The day you leave, value walks out the door.</p>
-        <p>Buyers call this "key person risk." It's the single biggest multiple killer in service businesses. A company that can run for 4 weeks without the owner commands a 1.5-2x higher multiple than one that can't.</p>
-        <p style="color: #666; font-size: 0.9rem;">Per the Exit Planning Institute, businesses with documented processes and a strong #2 leader sell for 20-40% more than owner-dependent equivalents.</p>
+      <div class="reveal" style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px; margin-bottom: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2); opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <h3 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 16px; line-height: 1.3;">Problem 1: Owner Dependency</h3>
+        <p style="color: #999; margin-bottom: 16px;">If you are the business - if every big decision, every key client relationship, every crisis runs through you - a buyer sees a ticking clock. The day you leave, value walks out the door.</p>
+        <p style="color: #999; margin-bottom: 16px;">Buyers call this "key person risk." It's the single biggest multiple killer in service businesses. A company that can run for 4 weeks without the owner commands a 1.5-2x higher multiple than one that can't.</p>
+        <p style="color: #666; font-size: 0.9rem; margin: 0;">Per the Exit Planning Institute, businesses with documented processes and a strong #2 leader sell for 20-40% more than owner-dependent equivalents.</p>
       </div>
 
-      <div class="card card-elevated reveal">
-        <h3>Problem 2: Customer Concentration</h3>
-        <p>If your top 3 clients represent more than 30% of revenue, buyers will discount your price - or walk away entirely. One lost contract shouldn't tank the business.</p>
-        <p>The fix isn't complicated. It's deliberate. Diversify your client base over 18-24 months before going to market. Buyers want to see no single client above 10-15% of revenue.</p>
+      <div class="reveal" style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px; margin-bottom: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2); opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <h3 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 16px; line-height: 1.3;">Problem 2: Customer Concentration</h3>
+        <p style="color: #999; margin-bottom: 16px;">If your top 3 clients represent more than 30% of revenue, buyers will discount your price - or walk away entirely. One lost contract shouldn't tank the business.</p>
+        <p style="color: #999; margin: 0;">The fix isn't complicated. It's deliberate. Diversify your client base over 18-24 months before going to market. Buyers want to see no single client above 10-15% of revenue.</p>
       </div>
 
-      <div class="card card-elevated reveal">
-        <h3>Problem 3: No Recurring Revenue</h3>
-        <p>Project-based revenue is worth less than contract revenue. Period. A plumbing company doing $8M in one-off jobs trades at 4x. The same company with 30% recurring maintenance contracts trades at 6x. That's a <span style="color: #34C759;">$16M difference on an $8M business.</span></p>
-        <p>Buyers pay more for predictability. If you can show contracted, recurring revenue, you're speaking their language.</p>
+      <div class="reveal" style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px; margin-bottom: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2); opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <h3 style="font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; color: #f0f0f0; margin: 0 0 16px; line-height: 1.3;">Problem 3: No Recurring Revenue</h3>
+        <p style="color: #999; margin-bottom: 16px;">Project-based revenue is worth less than contract revenue. Period. A plumbing company doing $8M in one-off jobs trades at 4x. The same company with 30% recurring maintenance contracts trades at 6x. That's a <span style="color: #34C759;">$16M difference on an $8M business.</span></p>
+        <p style="color: #999; margin: 0;">Buyers pay more for predictability. If you can show contracted, recurring revenue, you're speaking their language.</p>
       </div>
 
-      <div class="stats-grid reveal">
-        <div class="stat-block">
-          <div class="stat-number" style="color: #FF3B30;">73%</div>
-          <div class="stat-label">Get less than expected</div>
+      <div class="reveal" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 48px 0; opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px 20px; text-align: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #FF3B30; line-height: 1.1; margin-bottom: 8px;">73%</div>
+          <div style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #666;">Get less than expected</div>
         </div>
-        <div class="stat-block">
-          <div class="stat-number">1.5-2x</div>
-          <div class="stat-label">Multiple gap: dependent vs. independent</div>
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px 20px; text-align: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #C9A84C; line-height: 1.1; margin-bottom: 8px;">1.5-2x</div>
+          <div style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #666;">Multiple gap</div>
         </div>
-        <div class="stat-block">
-          <div class="stat-number" style="color: #34C759;">30%+</div>
-          <div class="stat-label">Value boost from recurring revenue</div>
+        <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px 20px; text-align: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: clamp(1.8rem, 4vw, 2.4rem); color: #34C759; line-height: 1.1; margin-bottom: 8px;">30%+</div>
+          <div style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: #666;">Value boost from recurring</div>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="divider-gradient">
+  <hr style="height: 1px; border: none; margin: 0; background: linear-gradient(90deg, transparent, #2a2a2a 20%, #2a2a2a 80%, transparent);">
 
   <!-- ==================== THE EXERCISE ==================== -->
-  <section class="section">
-    <div class="container">
-      <div class="reveal">
-        <span class="section-label">Self-Assessment</span>
-        <h2 class="section-title">The 10-Minute Exercise That Shows You Exactly Where You Stand</h2>
-        <p class="section-intro">You can spend $15,000 on a formal valuation. Or you can spend 10 minutes answering three questions that tell you 80% of what you need to know.</p>
+  <section style="padding: 80px 0;">
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 24px;">
+      <div class="reveal" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <span style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: #C9A84C; margin-bottom: 20px; display: block;">Self-Assessment</span>
+        <h2 style="font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.12; letter-spacing: -0.035em; color: #f0f0f0; margin: 0 0 20px;">The 10-Minute Exercise That Shows You Exactly Where You Stand</h2>
+        <p style="font-size: 1.05rem; color: #999; max-width: 560px; line-height: 1.7; margin-bottom: 48px;">You can spend $15,000 on a formal valuation. Or you can use our free calculator that uses the same math PE firms use - and get your estimated range in 2 minutes.</p>
       </div>
 
-      <div class="card card-elevated reveal">
-        <ol class="numbered-list">
-          <li>
-            <strong>What's your adjusted EBITDA?</strong>
-            <span>Net profit + owner salary + interest + depreciation + one-time costs. If you don't know this number off the top of your head, that's the first problem.</span>
-          </li>
-          <li>
-            <strong>What percentage of your revenue is recurring?</strong>
-            <span>Maintenance contracts, service agreements, retainers. Below 20% and you're leaving serious money on the table.</span>
-          </li>
-          <li>
-            <strong>Could your business run for 4 weeks without you?</strong>
-            <span>If the honest answer is no, your multiple is getting discounted by 20-40%. That's real money.</span>
-          </li>
+      <div class="reveal" style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 2px; padding: 32px; margin-bottom: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.3), 0 1px 4px rgba(0,0,0,0.2); opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <ol style="list-style: none; padding: 0; margin: 0; counter-reset: step;">
+          <li style="padding: 24px 0 24px 60px; position: relative; border-bottom: 1px solid rgba(42,42,42,0.6); counter-increment: step;"><span style="position: absolute; left: 0; top: 24px; width: 40px; height: 40px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 0.85rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;">1</span><strong style="color: #f0f0f0; display: block; margin-bottom: 4px;">What's your adjusted EBITDA?</strong><span style="color: #666; font-size: 0.95rem;">Net profit + owner salary + interest + depreciation + one-time costs. If you don't know this number off the top of your head, that's the first problem.</span></li>
+          <li style="padding: 24px 0 24px 60px; position: relative; border-bottom: 1px solid rgba(42,42,42,0.6); counter-increment: step;"><span style="position: absolute; left: 0; top: 24px; width: 40px; height: 40px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 0.85rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;">2</span><strong style="color: #f0f0f0; display: block; margin-bottom: 4px;">What percentage of your revenue is recurring?</strong><span style="color: #666; font-size: 0.95rem;">Maintenance contracts, service agreements, retainers. Below 20% and you're leaving serious money on the table.</span></li>
+          <li style="padding: 24px 0 24px 60px; position: relative; counter-increment: step;"><span style="position: absolute; left: 0; top: 24px; width: 40px; height: 40px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 0.85rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;">3</span><strong style="color: #f0f0f0; display: block; margin-bottom: 4px;">Could your business run for 4 weeks without you?</strong><span style="color: #666; font-size: 0.95rem;">If the honest answer is no, your multiple is getting discounted by 20-40%. That's real money.</span></li>
         </ol>
       </div>
 
-      <div class="reveal">
+      <div class="reveal" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
         <p style="color: #999; margin-bottom: 16px;">If you scored well on all three, you're ahead of most owners. If not, the good news: every one of these is fixable in 12-18 months.</p>
-        <p style="color: #999;">We built a free training that walks you through exactly how to fix each one - with real numbers, real case studies, and the exact checklist PE buyers use to evaluate businesses like yours.</p>
+        <p style="color: #999;">Stop guessing. Plug your numbers into the calculator and see exactly where you stand - with the same math PE buyers use.</p>
       </div>
 
-      <div class="cta-inline reveal">
-        <a href="#get-training">Get the Free Training Now</a>
-        <p class="cta-inline-proof">Join 5,000+ owners who used this to increase their exit value</p>
+      <div class="reveal" style="text-align: center; margin: 48px 0 0; opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <a href="#get-calculator" style="display: inline-block; padding: 18px 40px; font-size: 1rem; font-weight: 700; color: #0a0a0a; background: #C9A84C; border-radius: 2px; text-decoration: none; transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease; cursor: pointer;" onmouseover="this.style.background='#D4B65C'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 12px 40px rgba(201,168,76,0.15)';" onmouseout="this.style.background='#C9A84C'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">Unlock the Free Calculator &rarr;</a>
+        <p style="margin-top: 12px; font-size: 0.82rem; color: #555;">Join 5,000+ owners who used this to find their number</p>
       </div>
     </div>
   </section>
 
-  <hr class="divider-gradient">
+  <hr style="height: 1px; border: none; margin: 0; background: linear-gradient(90deg, transparent, #2a2a2a 20%, #2a2a2a 80%, transparent);">
 
-  <!-- ==================== FORM ==================== -->
-  <section id="get-training" class="form-section">
-    <div class="container">
-      <div class="form-header reveal">
-        <span class="form-header-label">Instant Access</span>
-        <h2>Get the Free Valuation Training</h2>
-        <p>The 3 steps that increase your exit price - with real math, real case studies, and the exact checklist PE buyers use.</p>
+  <!-- ==================== EMAIL GATE FORM ==================== -->
+  <section id="get-calculator" style="padding: 100px 0 80px; position: relative;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.03) 0%, transparent 60%); pointer-events: none;"></div>
+    <div style="max-width: 720px; margin: 0 auto; padding: 0 24px;">
+      <div class="reveal" style="text-align: center; margin-bottom: 48px; opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <span style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: #C9A84C; margin-bottom: 20px; display: block;">Free Valuation Calculator</span>
+        <h2 style="font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.4rem); letter-spacing: -0.035em; line-height: 1.15; color: #f0f0f0; margin: 0 0 16px;">Calculate Your Business Value in 2 Minutes</h2>
+        <p style="font-size: 1.05rem; color: #999; max-width: 460px; margin: 0 auto; line-height: 1.6;">The same EBITDA multiple math PE firms use - customized to your industry, revenue, and risk profile.</p>
       </div>
 
-      <!-- Objection strip (Wiebe: handle objections before the form) -->
-      <div class="objection-strip reveal">
-        <div class="objection-item"><span class="icon">&#10003;</span> Free - no credit card</div>
-        <div class="objection-item"><span class="icon">&#10003;</span> 15-minute read</div>
-        <div class="objection-item"><span class="icon">&#10003;</span> No sales call</div>
+      <!-- Objection strip -->
+      <div class="reveal" style="max-width: 480px; margin: 0 auto 24px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: #666;"><span style="color: #34C759; font-size: 0.9rem;">&#10003;</span> Free - no credit card</div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: #666;"><span style="color: #34C759; font-size: 0.9rem;">&#10003;</span> Instant access</div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: #666;"><span style="color: #34C759; font-size: 0.9rem;">&#10003;</span> No sales call</div>
       </div>
 
-      <div class="form-box reveal">
+      <div class="reveal" style="background: #1a1a1a; border: 1px solid rgba(201,168,76,0.12); border-radius: 2px; padding: 48px 40px; max-width: 480px; margin: 0 auto; position: relative; box-shadow: 0 8px 40px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2); opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <div style="position: absolute; top: -1px; left: 40px; right: 40px; height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);"></div>
+
         <form action="https://arena-api.jean-475.workers.dev/api/lead-capture" method="POST" id="valuation-form">
           <input type="hidden" name="source" value="satellite-valuation">
-          <input type="hidden" name="redirect" value="https://vivianashford.github.io/satellite-valuation/training.html">
+          <input type="hidden" name="redirect" value="https://vivianashford.github.io/satellite-valuation/calculator.html">
 
-          <div class="form-group">
-            <label class="form-label" for="name">Your Name</label>
-            <input type="text" id="name" name="name" class="form-input" placeholder="John Smith" required autocomplete="name">
+          <div style="margin-bottom: 20px;">
+            <label for="email" style="display: block; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 8px;">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@company.com" required autocomplete="email" inputmode="email" style="width: 100%; min-height: 50px; padding: 14px 16px; font-family: 'Inter', sans-serif; font-size: 17px; color: #f0f0f0; background: #111; border: 1px solid #2a2a2a; border-radius: 2px; outline: none; transition: border-color 0.25s ease, box-shadow 0.25s ease; -webkit-appearance: none; appearance: none; box-sizing: border-box;" onfocus="this.style.borderColor='#C9A84C'; this.style.boxShadow='0 0 0 3px rgba(201,168,76,0.08)';" onblur="this.style.borderColor='#2a2a2a'; this.style.boxShadow='none';">
           </div>
 
-          <div class="form-group">
-            <label class="form-label" for="email">Email Address</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="john@company.com" required autocomplete="email">
-          </div>
+          <button type="submit" id="submit-btn" style="width: 100%; min-height: 56px; padding: 18px 32px; margin-top: 12px; font-family: 'Inter', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; color: #0a0a0a; background: #C9A84C; border: none; border-radius: 2px; cursor: pointer; transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;" onmouseover="this.style.background='#D4B65C'; this.style.transform='translateY(-1px)'; this.style.boxShadow='0 12px 40px rgba(201,168,76,0.15)';" onmouseout="this.style.background='#C9A84C'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">Unlock the Free Calculator &rarr;</button>
 
-          <div class="form-group">
-            <label class="form-label" for="business_type">Business Type</label>
-            <select id="business_type" name="business_type" class="form-select" required autocomplete="organization-title">
-              <option value="" disabled selected>Select your industry</option>
-              <option value="Plumbing">Plumbing</option>
-              <option value="HVAC">HVAC</option>
-              <option value="Electrical">Electrical</option>
-              <option value="Pest Control">Pest Control</option>
-              <option value="Landscaping">Landscaping</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="revenue">Approximate Annual Revenue</label>
-            <select id="revenue" name="revenue" class="form-select" required>
-              <option value="" disabled selected>Select revenue range</option>
-              <option value="Under $1M">Under $1M</option>
-              <option value="$1-3M">$1-3M</option>
-              <option value="$3-5M">$3-5M</option>
-              <option value="$5-10M">$5-10M</option>
-              <option value="$10-25M">$10-25M</option>
-              <option value="$25-50M">$25-50M</option>
-              <option value="$50M+">$50M+</option>
-            </select>
-          </div>
-
-          <button type="submit" class="form-submit" id="submit-btn">Get Instant Access to the Training &rarr;</button>
-
-          <!-- Micro-copy: anxiety reduction (Wolf) -->
-          <p class="form-micro"><span class="lock-icon">&#128274;</span> Your info stays private. We never share or sell your data.</p>
+          <p style="text-align: center; color: #555; font-size: 0.8rem; margin: 16px 0 0; line-height: 1.5;"><span style="display: inline-block; margin-right: 4px; font-size: 0.75rem;">&#128274;</span> Enter your email. Get instant access. No spam.</p>
         </form>
 
-        <!-- Social proof within eyeline of CTA (Wolf) -->
-        <p class="form-proof"><strong>5,000+</strong> service business owners have used this training to increase their exit value</p>
+        <p style="text-align: center; color: #999; font-size: 0.85rem; margin-top: 24px; letter-spacing: 0.01em; padding-top: 20px; border-top: 1px solid #2a2a2a;"><strong style="color: #C9A84C;">5,000+</strong> service business owners have used this calculator</p>
       </div>
 
-      <!-- What happens next (Lillrud: reduce anxiety about the unknown) -->
-      <div class="next-steps reveal">
-        <p class="next-steps-title">What happens next</p>
-        <div class="next-steps-list">
-          <div class="next-step"><span class="num">1</span> Instant access to the training</div>
-          <div class="next-step"><span class="num">2</span> Personalized to your industry</div>
-          <div class="next-step"><span class="num">3</span> Actionable steps you can take today</div>
+      <!-- What happens next -->
+      <div class="reveal" style="max-width: 480px; margin: 28px auto 0; text-align: center; opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <p style="font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 16px;">What happens next</p>
+        <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #666;"><span style="width: 24px; height: 24px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</span> Enter your email</div>
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #666;"><span style="width: 24px; height: 24px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</span> Use the calculator</div>
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #666;"><span style="width: 24px; height: 24px; background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.15); color: #C9A84C; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">3</span> See your valuation range</div>
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- PRIDE CLOSE -->
-  <section class="pride-close">
-    <div class="container">
-      <p>You built something worth protecting. Make sure you get paid for it.</p>
-    </div>
+  <section style="padding: 64px 20px; text-align: center;">
+    <p style="color: #555; font-size: 1.1rem; font-style: italic; letter-spacing: -0.01em; font-weight: 400; margin: 0;">You built something worth protecting. Make sure you get paid for it.</p>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-links">
-        <a href="https://thearenapartners.com">The Arena Partners</a>
-        <a href="training.html">Free Training</a>
-        <a href="https://thearenapartners.com/privacy">Privacy</a>
-      </div>
-      <p>&copy; 2026 The Arena Partners. All rights reserved.</p>
+  <footer style="padding: 48px 20px; text-align: center; color: #555; font-size: 0.8rem; border-top: 1px solid #2a2a2a;">
+    <div style="margin-bottom: 16px;">
+      <a href="https://thearenapartners.com" style="color: #555; text-decoration: none; margin: 0 16px; transition: color 0.2s ease;">The Arena Partners</a>
+      <a href="https://thearenapartners.com/privacy" style="color: #555; text-decoration: none; margin: 0 16px; transition: color 0.2s ease;">Privacy</a>
     </div>
+    <p style="margin: 0;">&copy; 2026 The Arena Partners. All rights reserved.</p>
   </footer>
 
   <!-- Sticky CTA (mobile only) -->
-  <div class="sticky-cta" id="sticky-cta">
-    <a href="#get-training">Get the Free Training &rarr;</a>
+  <div id="sticky-cta" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(201,168,76,0.15); padding: 12px 20px; text-align: center;">
+    <a href="#get-calculator" style="display: block; width: 100%; padding: 16px 24px; font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 700; color: #0a0a0a; background: #C9A84C; border-radius: 2px; text-decoration: none; box-sizing: border-box;">Unlock the Free Calculator &rarr;</a>
   </div>
+
+  <style>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      .section-desktop .reveal > div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+    }
+    @media (min-width: 601px) {
+      #sticky-cta { display: none !important; }
+    }
+  </style>
 
   <script>
     // Loading state on form submit
     document.getElementById('valuation-form').addEventListener('submit', function() {
       var btn = document.getElementById('submit-btn');
-      btn.textContent = 'Loading...';
+      btn.textContent = 'Unlocking...';
       btn.style.opacity = '0.7';
       btn.style.pointerEvents = 'none';
     });
@@ -1101,20 +385,33 @@
       els.forEach(function(el) { observer.observe(el); });
     })();
 
+    // Make reveal visible
+    document.head.insertAdjacentHTML('beforeend', '<style>.reveal.visible { opacity: 1 !important; transform: translateY(0) !important; }</style>');
+
     // Sticky CTA (show after scrolling past hero on mobile)
     (function() {
       var sticky = document.getElementById('sticky-cta');
-      var formSection = document.getElementById('get-training');
-      window.addEventListener('scroll', function() {
-        var scrollY = window.scrollY;
-        var formTop = formSection.getBoundingClientRect().top + window.scrollY;
-        var heroHeight = window.innerHeight;
-        if (scrollY > heroHeight && scrollY < formTop - window.innerHeight * 0.5) {
-          sticky.classList.add('visible');
-        } else {
-          sticky.classList.remove('visible');
-        }
-      });
+      var formSection = document.getElementById('get-calculator');
+      if (window.innerWidth <= 600) {
+        window.addEventListener('scroll', function() {
+          var scrollY = window.scrollY;
+          var formTop = formSection.getBoundingClientRect().top + window.scrollY;
+          var heroHeight = window.innerHeight;
+          if (scrollY > heroHeight && scrollY < formTop - window.innerHeight * 0.5) {
+            sticky.style.display = 'block';
+          } else {
+            sticky.style.display = 'none';
+          }
+        });
+      }
+    })();
+
+    // Mobile grid fix
+    (function() {
+      if (window.innerWidth <= 600) {
+        var grids = document.querySelectorAll('[style*="grid-template-columns: repeat(3"]');
+        grids.forEach(function(g) { g.style.gridTemplateColumns = '1fr'; });
+      }
     })();
   </script>
 
