@@ -20,7 +20,10 @@
   <meta name="twitter:title" content="What Is Your Service Business Actually Worth?">
   <meta name="twitter:description" content="Most owners overestimate by 40%. Here's how buyers really calculate your exit price.">
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
   <!-- Schema.org - WebSite -->
   <script type="application/ld+json">
@@ -79,6 +82,439 @@
     gtag('js', new Date());
     gtag('config', 'G-SDMM90P63D');
   </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      line-height: 1.75;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: #C9A84C; text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: #D4B65C; }
+
+    /* Layout */
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 600px) { .container { padding: 0 20px; } }
+
+    /* Typography */
+    h1, h2, h3 { color: #f0f0f0; font-weight: 700; line-height: 1.2; letter-spacing: -0.03em; }
+    h1 { font-size: clamp(2.2rem, 5.5vw, 3.2rem); font-weight: 900; }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 20px; }
+    h3 { font-size: 1.25rem; margin-bottom: 12px; letter-spacing: -0.02em; }
+    p { margin-bottom: 16px; color: #f0f0f0; }
+    .text-secondary { color: #999; }
+    .text-muted { color: #666; }
+    .text-gold { color: #C9A84C; }
+    .text-green { color: #34C759; }
+    .text-red { color: #FF3B30; }
+    .text-small { font-size: 0.875rem; }
+    .mono { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+    .label-text { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; }
+
+    /* Hero */
+    .hero {
+      padding: 120px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #2a2a2a, transparent);
+    }
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #C9A84C;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      border-radius: 2px;
+      padding: 8px 20px;
+      margin-bottom: 32px;
+    }
+    .hero h1 { margin-bottom: 24px; }
+    .hero .subtitle {
+      font-size: 1.15rem;
+      color: #999;
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 80px 0 48px; }
+    }
+
+    /* Sections */
+    .section { padding: 80px 0; }
+    @media (max-width: 600px) { .section { padding: 48px 0; } }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: #2a2a2a;
+      border: none;
+      margin: 0;
+    }
+
+    /* Cards */
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+    .card-alt { background: #141414; }
+    .card-gold {
+      border-color: rgba(201, 168, 76, 0.25);
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.04), #1a1a1a);
+    }
+    @media (max-width: 600px) { .card { padding: 24px; } }
+
+    /* Stat Blocks */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+    .stat-block {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      padding: 28px 20px;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2rem;
+      font-weight: 500;
+      color: #C9A84C;
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: #666;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    @media (max-width: 600px) {
+      .stat-row { grid-template-columns: 1fr; }
+    }
+
+    /* Data Table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+    .data-table th, .data-table td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid #2a2a2a;
+    }
+    .data-table th {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #666;
+    }
+    .data-table tbody tr:nth-child(odd) { background: #141414; }
+    .data-table tbody tr:nth-child(even) { background: #1a1a1a; }
+    .data-table td { color: #f0f0f0; font-size: 0.95rem; }
+    .data-table td.mono { font-family: 'JetBrains Mono', monospace; }
+    .data-table tr:last-child td { border-bottom: none; }
+    @media (max-width: 600px) {
+      .data-table th, .data-table td { padding: 10px 8px; font-size: 0.85rem; }
+    }
+
+    /* Math Block */
+    .math-block {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      padding: 28px;
+      margin: 24px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 500;
+      line-height: 2;
+      color: #999;
+    }
+    .math-block .result { color: #34C759; font-size: 1rem; }
+
+    /* Check List */
+    .check-list { list-style: none; padding: 0; }
+    .check-list li {
+      padding: 14px 0 14px 36px;
+      position: relative;
+      border-bottom: 1px solid #2a2a2a;
+      color: #f0f0f0;
+    }
+    .check-list li:last-child { border-bottom: none; }
+    .check-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: #C9A84C;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    /* Numbered List */
+    .numbered-list { list-style: none; padding: 0; counter-reset: item; }
+    .numbered-list li {
+      padding: 20px 0 20px 52px;
+      position: relative;
+      border-bottom: 1px solid #2a2a2a;
+      counter-increment: item;
+    }
+    .numbered-list li:last-child { border-bottom: none; }
+    .numbered-list li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      top: 20px;
+      width: 36px;
+      height: 36px;
+      background: rgba(201, 168, 76, 0.1);
+      color: #C9A84C;
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 16px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      border-radius: 2px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    .btn-gold { background: #C9A84C; color: #0a0a0a; }
+    .btn-gold:hover { background: #D4B65C; color: #0a0a0a; }
+    .btn-outline {
+      background: transparent;
+      color: #C9A84C;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+    }
+    .btn-outline:hover { border-color: #C9A84C; color: #D4B65C; }
+
+    /* Form */
+    .form-section {
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+    }
+    .form-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, transparent, rgba(201, 168, 76, 0.02), transparent);
+      pointer-events: none;
+    }
+    @media (max-width: 600px) { .form-section { padding: 48px 0; } }
+
+    .form-box {
+      background: #1a1a1a;
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      border-radius: 2px;
+      padding: 48px 40px;
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: left;
+      position: relative;
+    }
+    .form-box::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 32px;
+      right: 32px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.4), transparent);
+    }
+    @media (max-width: 600px) { .form-box { padding: 32px 24px; } }
+
+    .form-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+    .form-subtitle {
+      text-align: center;
+      color: #999;
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #999;
+      margin-bottom: 8px;
+    }
+    .form-input,
+    .form-select {
+      width: 100%;
+      min-height: 48px;
+      padding: 12px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      color: #f0f0f0;
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-input:focus,
+    .form-select:focus {
+      border-color: #C9A84C;
+    }
+    .form-input::placeholder { color: #666; }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+    .form-select option {
+      background: #141414;
+      color: #f0f0f0;
+    }
+
+    .form-submit {
+      width: 100%;
+      min-height: 52px;
+      padding: 16px 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      background: #C9A84C;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      margin-top: 8px;
+    }
+    .form-submit:hover {
+      background: #D4B65C;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(201, 168, 76, 0.15);
+    }
+    .form-submit:active { transform: translateY(0); }
+
+    .form-proof {
+      text-align: center;
+      color: #666;
+      font-size: 0.8rem;
+      margin-top: 16px;
+    }
+
+    /* CTA inline */
+    .cta-inline {
+      text-align: center;
+      margin: 40px 0 0;
+    }
+
+    /* Trust Bar */
+    .trust-bar {
+      text-align: center;
+      padding: 32px 0;
+      color: #666;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+    .trust-bar span { display: inline-block; margin: 0 16px; }
+
+    /* Footer */
+    footer {
+      padding: 48px 0;
+      text-align: center;
+      color: #666;
+      font-size: 0.8rem;
+      border-top: 1px solid #2a2a2a;
+    }
+    footer a { color: #666; }
+    footer a:hover { color: #C9A84C; }
+    .footer-links { margin-bottom: 16px; }
+    .footer-links a { margin: 0 16px; }
+    .footer-newsletter {
+      max-width: 480px;
+      margin: 24px auto;
+      padding: 24px 0;
+      border-top: 1px solid #2a2a2a;
+    }
+    .footer-newsletter p {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 16px;
+    }
+    .footer-newsletter iframe {
+      width: 100%;
+      border: none;
+      border-radius: 2px;
+    }
+
+    /* Pride close */
+    .pride-close {
+      padding: 48px 0;
+      text-align: center;
+    }
+    .pride-close p {
+      color: #666;
+      font-size: 1.05rem;
+      font-style: italic;
+      letter-spacing: -0.01em;
+    }
+  </style>
 </head>
 <body>
 
@@ -86,19 +522,19 @@
   <section class="hero">
     <div class="container">
       <div class="hero-badge">Free Valuation Guide</div>
-      <h1>What Is Your Service Business <span class="gold">Actually Worth?</span></h1>
-      <p class="subtitle">Most owners overestimate by 40%. Here's how buyers really calculate it.</p>
-      <a href="#cta" class="btn btn-gold">Get the Free Training</a>
+      <h1>What Is Your Service Business <span class="text-gold">Actually Worth?</span></h1>
+      <p class="subtitle" style="font-size: 1.15rem; color: #999; max-width: 520px; margin: 0 auto 40px; line-height: 1.6;">Most owners overestimate by 40%. Here's how buyers really calculate it.</p>
+      <a href="#get-training" class="btn btn-gold">Get the Free Training</a>
     </div>
   </section>
 
   <hr class="divider">
 
   <!-- SECTION 1: The 3 Numbers -->
-  <section id="three-numbers">
+  <section class="section">
     <div class="container">
       <h2>The 3 Numbers That Determine Your Exit Price</h2>
-      <p>Forget what your accountant told you. Forget what your buddy sold his business for. Buyers use one formula, and it comes down to three numbers.</p>
+      <p style="color: #999;">Forget what your accountant told you. Forget what your buddy sold his business for. Buyers use one formula, and it comes down to three numbers.</p>
 
       <div class="stat-row">
         <div class="stat-block">
@@ -117,13 +553,13 @@
 
       <div class="card">
         <h3>Adjusted EBITDA</h3>
-        <p>Start with net profit. Add back your salary, interest, depreciation, amortization, and one-time expenses. That's your adjusted EBITDA - the number buyers actually care about.</p>
-        <p class="muted small">Example: $600K net profit + $250K owner salary + $50K one-time legal fees = <strong class="gold">$900K adjusted EBITDA</strong></p>
+        <p style="color: #999;">Start with net profit. Add back your salary, interest, depreciation, amortization, and one-time expenses. That's your adjusted EBITDA - the number buyers actually care about.</p>
+        <p class="text-small" style="color: #666;">Example: $600K net profit + $250K owner salary + $50K one-time legal fees = <strong class="text-gold">$900K adjusted EBITDA</strong></p>
       </div>
 
       <div class="card">
         <h3>Industry Multiple</h3>
-        <p>Your EBITDA gets multiplied by a number that depends on your industry, size, and risk profile. Here are the current ranges for service businesses:</p>
+        <p style="color: #999;">Your EBITDA gets multiplied by a number that depends on your industry, size, and risk profile. Here are the current ranges for service businesses:</p>
 
         <table class="data-table">
           <thead>
@@ -136,38 +572,38 @@
           <tbody>
             <tr>
               <td>Pest Control</td>
-              <td class="green">6 - 9x</td>
-              <td class="muted">Recurring revenue premium</td>
+              <td class="mono text-green">6 - 9x</td>
+              <td style="color: #666;">Recurring revenue premium</td>
             </tr>
             <tr>
               <td>HVAC</td>
-              <td class="green">5 - 8x</td>
-              <td class="muted">Service agreements boost value</td>
+              <td class="mono text-green">5 - 8x</td>
+              <td style="color: #666;">Service agreements boost value</td>
             </tr>
             <tr>
               <td>Plumbing</td>
-              <td>4 - 7x</td>
-              <td class="muted">Depends on maintenance contracts</td>
+              <td class="mono">4 - 7x</td>
+              <td style="color: #666;">Depends on maintenance contracts</td>
             </tr>
             <tr>
               <td>Electrical</td>
-              <td>4 - 6x</td>
-              <td class="muted">Commercial contracts valued higher</td>
+              <td class="mono">4 - 6x</td>
+              <td style="color: #666;">Commercial contracts valued higher</td>
             </tr>
             <tr>
               <td>Landscaping</td>
-              <td>3 - 5x</td>
-              <td class="muted">Seasonal risk discounts apply</td>
+              <td class="mono">3 - 5x</td>
+              <td style="color: #666;">Seasonal risk discounts apply</td>
             </tr>
           </tbody>
         </table>
 
-        <p class="muted small">Source: GF Data, PitchBook, and publicly reported service-sector transactions (2023-2025). Multiples reflect enterprise value to EBITDA for businesses between $1M and $10M EBITDA.</p>
+        <p class="text-small" style="color: #666;">Source: GF Data, PitchBook, and publicly reported service-sector transactions (2023-2025). Multiples reflect enterprise value to EBITDA for businesses between $1M and $10M EBITDA.</p>
       </div>
 
       <div class="card">
         <h3>Risk Adjustments</h3>
-        <p>This is where most owners get surprised. Buyers don't just look at your revenue - they stress-test everything that could go wrong after they write the check.</p>
+        <p style="color: #999;">This is where most owners get surprised. Buyers don't just look at your revenue - they stress-test everything that could go wrong after they write the check.</p>
         <ul class="check-list">
           <li><strong>Owner dependency</strong> - Can it run without you for 4 weeks?</li>
           <li><strong>Customer concentration</strong> - Do your top 3 clients make up more than 30% of revenue?</li>
@@ -185,8 +621,8 @@
           <span class="result">Estimated value: $7.2M</span><br><br>
           But with high owner dependency...<br>
           Adjusted multiple: 4.5x<br>
-          <span style="color: var(--red);">Reduced value: $5.4M</span><br><br>
-          <strong>Difference: $1.8M left on the table.</strong>
+          <span style="color: #FF3B30;">Reduced value: $5.4M</span><br><br>
+          <strong style="color: #f0f0f0;">Difference: $1.8M left on the table.</strong>
         </div>
       </div>
 
@@ -196,41 +632,41 @@
   <hr class="divider">
 
   <!-- SECTION 2: Why Owners Get Less -->
-  <section id="lower-price">
+  <section class="section">
     <div class="container">
       <h2>Why 73% of Business Owners Get a Lower Price Than Expected</h2>
-      <p>According to the International Business Brokers Association, nearly three-quarters of business owners are disappointed by the offers they receive. The gap between what they think their business is worth and what a buyer will actually pay comes down to three fixable problems.</p>
+      <p style="color: #999;">According to the International Business Brokers Association, nearly three-quarters of business owners are disappointed by the offers they receive. The gap between what they think their business is worth and what a buyer will actually pay comes down to three fixable problems.</p>
 
       <div class="card">
         <h3>Problem 1: Owner Dependency</h3>
-        <p>If you are the business - if every big decision, every key client relationship, every crisis runs through you - a buyer sees a ticking clock. The day you leave, value walks out the door.</p>
-        <p>Buyers call this "key person risk." It's the single biggest multiple killer in service businesses. A company that can run for 4 weeks without the owner commands a 1.5-2x higher multiple than one that can't.</p>
-        <p class="muted small">Per the Exit Planning Institute, businesses with documented processes and a strong #2 leader sell for 20-40% more than owner-dependent equivalents.</p>
+        <p style="color: #999;">If you are the business - if every big decision, every key client relationship, every crisis runs through you - a buyer sees a ticking clock. The day you leave, value walks out the door.</p>
+        <p style="color: #999;">Buyers call this "key person risk." It's the single biggest multiple killer in service businesses. A company that can run for 4 weeks without the owner commands a 1.5-2x higher multiple than one that can't.</p>
+        <p class="text-small" style="color: #666;">Per the Exit Planning Institute, businesses with documented processes and a strong #2 leader sell for 20-40% more than owner-dependent equivalents.</p>
       </div>
 
       <div class="card">
         <h3>Problem 2: Customer Concentration</h3>
-        <p>If your top 3 clients represent more than 30% of revenue, buyers will discount your price - or walk away entirely. One lost contract shouldn't tank the business.</p>
-        <p>The fix isn't complicated. It's deliberate. Diversify your client base over 18-24 months before going to market. Buyers want to see no single client above 10-15% of revenue.</p>
+        <p style="color: #999;">If your top 3 clients represent more than 30% of revenue, buyers will discount your price - or walk away entirely. One lost contract shouldn't tank the business.</p>
+        <p style="color: #999;">The fix isn't complicated. It's deliberate. Diversify your client base over 18-24 months before going to market. Buyers want to see no single client above 10-15% of revenue.</p>
       </div>
 
       <div class="card">
         <h3>Problem 3: No Recurring Revenue</h3>
-        <p>Project-based revenue is worth less than contract revenue. Period. A plumbing company doing $8M in one-off jobs trades at 4x. The same company with 30% recurring maintenance contracts trades at 6x. That's a <span class="green">$16M difference on an $8M business.</span></p>
-        <p>Buyers pay more for predictability. If you can show contracted, recurring revenue, you're speaking their language.</p>
+        <p style="color: #999;">Project-based revenue is worth less than contract revenue. Period. A plumbing company doing $8M in one-off jobs trades at 4x. The same company with 30% recurring maintenance contracts trades at 6x. That's a <span class="text-green">$16M difference on an $8M business.</span></p>
+        <p style="color: #999;">Buyers pay more for predictability. If you can show contracted, recurring revenue, you're speaking their language.</p>
       </div>
 
       <div class="stat-row">
         <div class="stat-block">
-          <div class="stat-number" style="color: var(--red);">73%</div>
+          <div class="stat-number" style="color: #FF3B30;">73%</div>
           <div class="stat-label">Get less than expected</div>
         </div>
         <div class="stat-block">
-          <div class="stat-number">1.5 - 2x</div>
+          <div class="stat-number">1.5-2x</div>
           <div class="stat-label">Multiple gap: dependent vs. independent</div>
         </div>
         <div class="stat-block">
-          <div class="stat-number" style="color: var(--green);">30%+</div>
+          <div class="stat-number" style="color: #34C759;">30%+</div>
           <div class="stat-label">Value boost from recurring revenue</div>
         </div>
       </div>
@@ -240,47 +676,91 @@
   <hr class="divider">
 
   <!-- SECTION 3: The Exercise -->
-  <section id="exercise">
+  <section class="section">
     <div class="container">
       <h2>The 10-Minute Exercise That Shows You Exactly Where You Stand</h2>
-      <p>You can spend $15,000 on a formal valuation. Or you can spend 10 minutes answering three questions that tell you 80% of what you need to know.</p>
+      <p style="color: #999;">You can spend $15,000 on a formal valuation. Or you can spend 10 minutes answering three questions that tell you 80% of what you need to know.</p>
 
       <div class="card">
         <ol class="numbered-list">
           <li>
             <strong>What's your adjusted EBITDA?</strong><br>
-            <span class="muted">Net profit + owner salary + interest + depreciation + one-time costs. If you don't know this number off the top of your head, that's the first problem.</span>
+            <span style="color: #666;">Net profit + owner salary + interest + depreciation + one-time costs. If you don't know this number off the top of your head, that's the first problem.</span>
           </li>
           <li>
             <strong>What percentage of your revenue is recurring?</strong><br>
-            <span class="muted">Maintenance contracts, service agreements, retainers. Below 20% and you're leaving serious money on the table.</span>
+            <span style="color: #666;">Maintenance contracts, service agreements, retainers. Below 20% and you're leaving serious money on the table.</span>
           </li>
           <li>
             <strong>Could your business run for 4 weeks without you?</strong><br>
-            <span class="muted">If the honest answer is no, your multiple is getting discounted by 20-40%. That's real money.</span>
+            <span style="color: #666;">If the honest answer is no, your multiple is getting discounted by 20-40%. That's real money.</span>
           </li>
         </ol>
       </div>
 
-      <p>If you scored well on all three, you're ahead of most owners. If not, the good news: every one of these is fixable in 12-18 months.</p>
-      <p>We built a free training that walks you through exactly how to fix each one - with real numbers, real case studies, and the exact checklist PE buyers use to evaluate businesses like yours.</p>
+      <p style="color: #999;">If you scored well on all three, you're ahead of most owners. If not, the good news: every one of these is fixable in 12-18 months.</p>
+      <p style="color: #999;">We built a free training that walks you through exactly how to fix each one - with real numbers, real case studies, and the exact checklist PE buyers use to evaluate businesses like yours.</p>
+
+      <div class="cta-inline">
+        <a href="#get-training" class="btn btn-gold">Get My Free Valuation Training</a>
+      </div>
     </div>
   </section>
 
-  <!-- CTA SECTION -->
-  <section id="cta" class="cta-section">
+  <hr class="divider">
+
+  <!-- FORM SECTION -->
+  <section id="get-training" class="form-section">
     <div class="container">
-      <div class="cta-box">
-        <h2>Get the Free Training</h2>
-        <p>3 Steps to Increase Your Business Value Before You Sell</p>
-        <p class="small muted">Real math. Real case studies. No fluff. Takes 15 minutes to read - could be worth millions at exit.</p>
+      <div class="form-box">
+        <h2 class="form-title">Get the Free Training</h2>
+        <p class="form-subtitle">3 Steps to Increase Your Business Value Before You Sell</p>
 
-        <div class="substack-embed">
-          <iframe src="https://thearenapartners.substack.com/embed" width="480" height="150" frameborder="0" scrolling="no"></iframe>
-        </div>
+        <form action="training.html" method="GET" id="valuation-form">
+          <div class="form-group">
+            <label class="form-label" for="name">Your Name</label>
+            <input type="text" id="name" name="name" class="form-input" placeholder="John Smith" required autocomplete="name">
+          </div>
 
-        <p class="small muted" style="margin-top: 16px;">Join 5,000+ service business owners getting smarter about their exit.</p>
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="john@company.com" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="business_type">Business Type</label>
+            <select id="business_type" name="business_type" class="form-select" required>
+              <option value="" disabled selected>Select your industry</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="HVAC">HVAC</option>
+              <option value="Electrical">Electrical</option>
+              <option value="Pest Control">Pest Control</option>
+              <option value="Landscaping">Landscaping</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="revenue">Approximate Annual Revenue</label>
+            <select id="revenue" name="revenue" class="form-select" required>
+              <option value="" disabled selected>Select revenue range</option>
+              <option value="Under $1M">Under $1M</option>
+              <option value="$1-3M">$1-3M</option>
+              <option value="$3-5M">$3-5M</option>
+              <option value="$5-10M">$5-10M</option>
+              <option value="$10-25M">$10-25M</option>
+              <option value="$25-50M">$25-50M</option>
+              <option value="$50M+">$50M+</option>
+            </select>
+          </div>
+
+          <button type="submit" class="form-submit" id="submit-btn">Get My Free Valuation Training &rarr;</button>
+        </form>
+
+        <p class="form-proof">Join 5,000+ business owners who increased their exit value</p>
       </div>
+
+      <p class="text-small" style="color: #666; margin-top: 24px; text-align: center;">Real math. Real case studies. No fluff. Takes 15 minutes to read - could be worth millions at exit.</p>
     </div>
   </section>
 
@@ -288,15 +768,15 @@
   <div class="trust-bar">
     <div class="container">
       <span>Join 5,000+ business owners</span>
-      <span>|</span>
+      <span style="color: #2a2a2a;">|</span>
       <span>By <a href="https://thearenapartners.com">The Arena Partners</a></span>
     </div>
   </div>
 
   <!-- PRIDE CLOSE -->
-  <section style="padding: 40px 0; text-align: center;">
+  <section class="pride-close">
     <div class="container">
-      <p class="muted" style="font-size: 1.1rem; font-style: italic;">You built something valuable. Make sure you get paid for it.</p>
+      <p>You built something worth protecting. Make sure you get paid for it.</p>
     </div>
   </section>
 
@@ -308,9 +788,24 @@
         <a href="training.html">Free Training</a>
         <a href="https://thearenapartners.com/privacy">Privacy</a>
       </div>
+
+      <div class="footer-newsletter">
+        <p>Get weekly insights on business valuation and exit strategy.</p>
+        <iframe src="https://thearenapartners.substack.com/embed" width="480" height="150" frameborder="0" scrolling="no" style="max-width: 100%;"></iframe>
+      </div>
+
       <p>&copy; 2026 The Arena Partners. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Brief loading state on form submit
+    document.getElementById('valuation-form').addEventListener('submit', function() {
+      var btn = document.getElementById('submit-btn');
+      btn.textContent = 'Loading...';
+      btn.style.opacity = '0.7';
+    });
+  </script>
 
 </body>
 </html>

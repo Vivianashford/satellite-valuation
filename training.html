@@ -14,7 +14,10 @@
   <meta property="og:url" content="https://vivianashford.github.io/satellite-valuation/training.html">
   <meta property="og:site_name" content="The Arena Partners">
 
-  <link rel="stylesheet" href="style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -43,46 +46,367 @@
     gtag('js', new Date());
     gtag('config', 'G-SDMM90P63D');
   </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #f0f0f0;
+      line-height: 1.75;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: #C9A84C; text-decoration: none; transition: color 0.2s ease; }
+    a:hover { color: #D4B65C; }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 600px) { .container { padding: 0 20px; } }
+
+    h1, h2, h3 { color: #f0f0f0; font-weight: 700; line-height: 1.2; letter-spacing: -0.03em; }
+    h1 { font-size: clamp(2.2rem, 5.5vw, 3.2rem); font-weight: 900; }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 20px; }
+    h3 { font-size: 1.25rem; margin-bottom: 12px; letter-spacing: -0.02em; }
+    p { margin-bottom: 16px; }
+    .text-gold { color: #C9A84C; }
+    .text-green { color: #34C759; }
+    .text-red { color: #FF3B30; }
+    .text-small { font-size: 0.875rem; }
+    .mono { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+
+    .section { padding: 80px 0; }
+    @media (max-width: 600px) { .section { padding: 48px 0; } }
+
+    .divider { height: 1px; background: #2a2a2a; border: none; margin: 0; }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #666;
+      padding: 24px 0 0;
+      transition: color 0.2s ease;
+    }
+    .back-link:hover { color: #C9A84C; }
+
+    /* Unlock Hero */
+    .unlock-hero {
+      padding: 100px 0 60px;
+      text-align: center;
+      position: relative;
+    }
+    .unlock-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #2a2a2a, transparent);
+    }
+    @media (max-width: 600px) { .unlock-hero { padding: 64px 0 40px; } }
+
+    .unlock-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 28px;
+      background: rgba(201, 168, 76, 0.08);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      animation: unlockPulse 2s ease-in-out;
+    }
+    @keyframes unlockPulse {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .unlock-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #34C759;
+      border: 1px solid rgba(52, 199, 89, 0.3);
+      border-radius: 2px;
+      padding: 8px 20px;
+      margin-bottom: 28px;
+    }
+
+    .unlock-hero h1 { margin-bottom: 20px; }
+    .unlock-hero .subtitle {
+      font-size: 1.1rem;
+      color: #999;
+      max-width: 540px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* Personalization bar */
+    .personalization {
+      display: none;
+      max-width: 520px;
+      margin: 28px auto 0;
+      padding: 20px 24px;
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      text-align: center;
+      animation: fadeSlideIn 0.6s ease-out;
+    }
+    .personalization.visible { display: block; }
+    .personalization p {
+      color: #999;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+    .personalization strong { color: #f0f0f0; }
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards */
+    .card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      padding: 32px;
+      margin-bottom: 20px;
+    }
+    .card-alt { background: #141414; }
+    .card-gold {
+      border-color: rgba(201, 168, 76, 0.25);
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.04), #1a1a1a);
+    }
+    @media (max-width: 600px) { .card { padding: 24px; } }
+
+    /* Math Block */
+    .math-block {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      padding: 28px;
+      margin: 24px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 500;
+      line-height: 2;
+      color: #999;
+    }
+    .math-block .result { color: #34C759; font-size: 1rem; }
+
+    /* Check List */
+    .check-list { list-style: none; padding: 0; }
+    .check-list li {
+      padding: 14px 0 14px 36px;
+      position: relative;
+      border-bottom: 1px solid #2a2a2a;
+      color: #f0f0f0;
+    }
+    .check-list li:last-child { border-bottom: none; }
+    .check-list li::before {
+      content: '\2713';
+      position: absolute;
+      left: 0;
+      color: #C9A84C;
+      font-weight: 700;
+    }
+
+    /* Step Header */
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: rgba(201, 168, 76, 0.1);
+      color: #C9A84C;
+      font-weight: 800;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Scorecard */
+    .scorecard { display: grid; gap: 12px; margin: 24px 0; }
+    .score-item {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      font-size: 0.95rem;
+    }
+    .score-item .label { color: #f0f0f0; }
+    .score-item .target { color: #666; font-size: 0.85rem; white-space: nowrap; }
+    .score-item .weight { color: #C9A84C; font-weight: 700; font-size: 0.85rem; white-space: nowrap; }
+    @media (max-width: 600px) {
+      .score-item { grid-template-columns: 1fr; gap: 6px; }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 16px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      border-radius: 2px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    .btn-gold { background: #C9A84C; color: #0a0a0a; }
+    .btn-gold:hover { background: #D4B65C; color: #0a0a0a; }
+    .btn-outline {
+      background: transparent;
+      color: #C9A84C;
+      border: 1px solid rgba(201, 168, 76, 0.4);
+    }
+    .btn-outline:hover { border-color: #C9A84C; color: #D4B65C; }
+
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      padding: 80px 0;
+    }
+    .cta-section .cta-inner {
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.04), transparent);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      border-radius: 2px;
+      padding: 56px 40px;
+      position: relative;
+    }
+    .cta-section .cta-inner::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 40px;
+      right: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.3), transparent);
+    }
+    @media (max-width: 600px) {
+      .cta-section { padding: 48px 0; }
+      .cta-section .cta-inner { padding: 40px 24px; }
+      .cta-section .btn { display: block; width: 100%; }
+      .cta-section .btn + .btn { margin-top: 12px; }
+    }
+
+    /* Progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: #C9A84C;
+      z-index: 1000;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+
+    /* Pride close */
+    .pride-close {
+      padding: 48px 0;
+      text-align: center;
+    }
+    .pride-close p {
+      color: #666;
+      font-size: 1.05rem;
+      font-style: italic;
+    }
+
+    /* Footer */
+    footer {
+      padding: 48px 0;
+      text-align: center;
+      color: #666;
+      font-size: 0.8rem;
+      border-top: 1px solid #2a2a2a;
+    }
+    footer a { color: #666; }
+    footer a:hover { color: #C9A84C; }
+    .footer-links { margin-bottom: 16px; }
+    .footer-links a { margin: 0 16px; }
+  </style>
 </head>
 <body>
+
+  <!-- Progress bar -->
+  <div class="progress-bar" id="progress-bar"></div>
 
   <div class="container">
     <a href="index.html" class="back-link">&larr; Back to Valuation Guide</a>
   </div>
 
-  <!-- HERO -->
-  <section class="hero" style="padding-bottom: 40px;">
+  <!-- UNLOCK HERO -->
+  <section class="unlock-hero">
     <div class="container">
-      <div class="hero-badge">Free Training</div>
-      <h1>3 Steps to Increase Your Business Value <span class="gold">Before You Sell</span></h1>
-      <p class="subtitle">This is the playbook. Real math. Real case studies. The exact checklist PE buyers use to evaluate your business.</p>
+      <div class="unlock-icon">&#10003;</div>
+      <div class="unlock-badge">Your Training Is Ready</div>
+      <h1>3 Steps to Increase Your Business Value <span class="text-gold">Before You Sell</span></h1>
+      <p class="subtitle">The playbook. Real math. Real case studies. The exact checklist PE buyers use to evaluate your business.</p>
+
+      <!-- Personalization block - enhanced by JS if URL params exist -->
+      <div class="personalization" id="personalization">
+        <p id="personalization-text"></p>
+      </div>
     </div>
   </section>
 
   <hr class="divider">
 
   <!-- STEP 1 -->
-  <section>
+  <section class="section">
     <div class="container">
       <div class="step-header">
         <div class="step-num">1</div>
         <h2 style="margin-bottom: 0;">The Revenue Quality Shift</h2>
       </div>
 
-      <p>Not all revenue is created equal. A dollar of recurring contract revenue is worth 2-3x more than a dollar of one-time project revenue. Buyers know this. Most owners don't.</p>
+      <p style="color: #999;">Not all revenue is created equal. A dollar of recurring contract revenue is worth 2-3x more than a dollar of one-time project revenue. Buyers know this. Most owners don't.</p>
 
-      <p>Here's the simplest lever you can pull: <strong>convert 10% of your project revenue to recurring contracts.</strong> That's it. Not 50%. Not a total business model overhaul. Just 10%.</p>
+      <p style="color: #999;">Here's the simplest lever you can pull: <strong style="color: #f0f0f0;">convert 10% of your project revenue to recurring contracts.</strong> That's it. Not 50%. Not a total business model overhaul. Just 10%.</p>
 
       <h3>The Math</h3>
 
       <div class="card">
-        <p>Take an $8M service business at a 5x EBITDA multiple.</p>
+        <p style="color: #999;">Take an $8M service business at a 5x EBITDA multiple.</p>
         <div class="math-block">
           Current state:<br>
           $8M revenue, mostly project-based<br>
           EBITDA: $1.6M (20% margin)<br>
           Multiple: 5.0x<br>
-          <strong>Valuation: $8.0M</strong><br><br>
+          <strong style="color: #f0f0f0;">Valuation: $8.0M</strong><br><br>
 
           After shifting 10% to recurring:<br>
           $8M revenue, 10% on contract ($800K recurring)<br>
@@ -90,18 +414,18 @@
           Multiple: 6.5x (recurring revenue premium)<br>
           <span class="result">New valuation: $10.4M</span><br><br>
 
-          <strong class="green">Difference: +$2.4M in enterprise value</strong><br>
-          Same revenue. Same profit. Different structure.
+          <strong class="text-green">Difference: +$2.4M in enterprise value</strong><br>
+          <span style="color: #666;">Same revenue. Same profit. Different structure.</span>
         </div>
       </div>
 
       <h3>Case Study: WashTec</h3>
 
       <div class="card card-alt">
-        <p>WashTec, a German industrial services company, made this exact shift. They moved from selling car wash equipment (one-time) to selling car wash equipment plus maintenance and chemical supply contracts (recurring).</p>
-        <p>The result: their EBITDA multiple expanded from roughly 6x to over 10x between 2015 and 2020. The business didn't grow dramatically. The revenue mix changed.</p>
-        <p>Their stock price reflected it - going from around EUR 20 to over EUR 70 in that period. Same company. Same market. Different revenue structure.</p>
-        <p class="muted small">Source: WashTec AG annual reports and investor presentations, 2015-2020.</p>
+        <p style="color: #999;">WashTec, a German industrial services company, made this exact shift. They moved from selling car wash equipment (one-time) to selling car wash equipment plus maintenance and chemical supply contracts (recurring).</p>
+        <p style="color: #999;">The result: their EBITDA multiple expanded from roughly 6x to over 10x between 2015 and 2020. The business didn't grow dramatically. The revenue mix changed.</p>
+        <p style="color: #999;">Their stock price reflected it - going from around EUR 20 to over EUR 70 in that period. Same company. Same market. Different revenue structure.</p>
+        <p class="text-small" style="color: #666;">Source: WashTec AG annual reports and investor presentations, 2015-2020.</p>
       </div>
 
       <h3>How to Do It in Your Business</h3>
@@ -115,52 +439,52 @@
         </ul>
       </div>
 
-      <p>You don't need to reinvent your business. You need to package what you already do into a predictable, recurring format. Start with your most repeat-friendly service line and build from there.</p>
+      <p style="color: #999;">You don't need to reinvent your business. You need to package what you already do into a predictable, recurring format. Start with your most repeat-friendly service line and build from there.</p>
     </div>
   </section>
 
   <hr class="divider">
 
   <!-- STEP 2 -->
-  <section>
+  <section class="section">
     <div class="container">
       <div class="step-header">
         <div class="step-num">2</div>
         <h2 style="margin-bottom: 0;">The Owner Dependency Test</h2>
       </div>
 
-      <p>Here's the test: <strong>Can your business run for 4 weeks without you?</strong></p>
+      <p style="color: #999;">Here's the test: <strong style="color: #f0f0f0;">Can your business run for 4 weeks without you?</strong></p>
 
-      <p>Not "limp along." Not "survive with daily phone calls." Actually run - serve customers, close deals, handle problems - without you touching anything.</p>
+      <p style="color: #999;">Not "limp along." Not "survive with daily phone calls." Actually run - serve customers, close deals, handle problems - without you touching anything.</p>
 
-      <p>If the answer is no, your business has a key person risk problem. And buyers will discount your multiple by 20-40% because of it.</p>
+      <p style="color: #999;">If the answer is no, your business has a key person risk problem. And buyers will discount your multiple by 20-40% because of it.</p>
 
-      <p>Per the Exit Planning Institute, owner-dependent businesses sell for an average of 2.5x EBITDA less than businesses with strong management teams. On a $1.5M EBITDA business, that's a <span style="color: var(--red);">$3.75M penalty</span>.</p>
+      <p style="color: #999;">Per the Exit Planning Institute, owner-dependent businesses sell for an average of 2.5x EBITDA less than businesses with strong management teams. On a $1.5M EBITDA business, that's a <span class="text-red">$3.75M penalty</span>.</p>
 
       <h3>The 5-Point Checklist</h3>
 
       <div class="card card-gold">
-        <p class="muted small" style="margin-bottom: 16px;">Score yourself honestly. Each "no" is costing you real money at exit.</p>
+        <p class="text-small" style="color: #666; margin-bottom: 16px;">Score yourself honestly. Each "no" is costing you real money at exit.</p>
         <ul class="check-list">
           <li>
             <strong>Documented processes for every repeatable task</strong><br>
-            <span class="muted">Not in your head. Written down. Video walkthroughs, SOPs, checklists. If a new hire can't follow the process without calling you, it's not documented.</span>
+            <span style="color: #666;">Not in your head. Written down. Video walkthroughs, SOPs, checklists. If a new hire can't follow the process without calling you, it's not documented.</span>
           </li>
           <li>
             <strong>A strong #2 who can run day-to-day operations</strong><br>
-            <span class="muted">This person handles staffing issues, client escalations, and scheduling without your input. They make 80% of daily decisions. Buyers will interview them during diligence.</span>
+            <span style="color: #666;">This person handles staffing issues, client escalations, and scheduling without your input. They make 80% of daily decisions. Buyers will interview them during diligence.</span>
           </li>
           <li>
             <strong>Client relationships distributed across the team</strong><br>
-            <span class="muted">If every key client has your personal cell phone, that's a problem. Transition relationships to account managers over 6-12 months before going to market.</span>
+            <span style="color: #666;">If every key client has your personal cell phone, that's a problem. Transition relationships to account managers over 6-12 months before going to market.</span>
           </li>
           <li>
             <strong>Financial reporting that runs without you</strong><br>
-            <span class="muted">Monthly P&L, cash flow, AR/AP - generated automatically or by your bookkeeper. If you're the only one who understands the numbers, buyers see risk.</span>
+            <span style="color: #666;">Monthly P&L, cash flow, AR/AP - generated automatically or by your bookkeeper. If you're the only one who understands the numbers, buyers see risk.</span>
           </li>
           <li>
             <strong>Sales pipeline not dependent on owner relationships</strong><br>
-            <span class="muted">Can your team close new business without you in the room? If not, revenue dies when you leave. That's the biggest buyer fear.</span>
+            <span style="color: #666;">Can your team close new business without you in the room? If not, revenue dies when you leave. That's the biggest buyer fear.</span>
           </li>
         </ul>
       </div>
@@ -168,58 +492,58 @@
       <h3>The Fix: 12-Month Transition Plan</h3>
 
       <div class="card">
-        <p><strong>Months 1-3:</strong> Document everything. Every process you do regularly gets written down. Use Loom videos, Google Docs, whatever works. The goal is to get it out of your head and into a system.</p>
-        <p><strong>Months 4-6:</strong> Hire or promote your #2. Give them authority. Let them make mistakes. This is expensive in the short term and worth millions at exit.</p>
-        <p><strong>Months 7-9:</strong> Step back from client relationships. Introduce your account manager or ops lead to every key client. Start with the smallest accounts and work up.</p>
-        <p><strong>Months 10-12:</strong> Take 2-4 weeks off. Don't check in. If the business holds, you've done it. If it doesn't, you know exactly what still needs fixing.</p>
+        <p style="color: #999;"><strong style="color: #f0f0f0;">Months 1-3:</strong> Document everything. Every process you do regularly gets written down. Use Loom videos, Google Docs, whatever works. The goal is to get it out of your head and into a system.</p>
+        <p style="color: #999;"><strong style="color: #f0f0f0;">Months 4-6:</strong> Hire or promote your #2. Give them authority. Let them make mistakes. This is expensive in the short term and worth millions at exit.</p>
+        <p style="color: #999;"><strong style="color: #f0f0f0;">Months 7-9:</strong> Step back from client relationships. Introduce your account manager or ops lead to every key client. Start with the smallest accounts and work up.</p>
+        <p style="color: #999;"><strong style="color: #f0f0f0;">Months 10-12:</strong> Take 2-4 weeks off. Don't check in. If the business holds, you've done it. If it doesn't, you know exactly what still needs fixing.</p>
       </div>
 
-      <p>This isn't about making yourself useless. It's about proving to a buyer that the machine works without you. That proof is worth millions.</p>
+      <p style="color: #999;">This isn't about making yourself useless. It's about proving to a buyer that the machine works without you. That proof is worth millions.</p>
     </div>
   </section>
 
   <hr class="divider">
 
   <!-- STEP 3 -->
-  <section>
+  <section class="section">
     <div class="container">
       <div class="step-header">
         <div class="step-num">3</div>
         <h2 style="margin-bottom: 0;">The Buyer's Scorecard</h2>
       </div>
 
-      <p>Private equity firms and strategic buyers evaluate service businesses on the same six factors. Every single time. This isn't a secret - it's just that most owners never see it from the buyer's side.</p>
+      <p style="color: #999;">Private equity firms and strategic buyers evaluate service businesses on the same six factors. Every single time. This isn't a secret - it's just that most owners never see it from the buyer's side.</p>
 
-      <p>Here's the exact scorecard. Grade yourself honestly on each one.</p>
+      <p style="color: #999;">Here's the exact scorecard. Grade yourself honestly on each one.</p>
 
       <div class="scorecard">
         <div class="score-item">
-          <span class="label"><strong>Recurring Revenue %</strong><br><span class="muted small">Contract, subscription, or retainer-based revenue</span></span>
+          <span class="label"><strong>Recurring Revenue %</strong><br><span class="text-small" style="color: #666;">Contract, subscription, or retainer-based revenue</span></span>
           <span class="target">Target: 30%+</span>
           <span class="weight">Weight: High</span>
         </div>
         <div class="score-item">
-          <span class="label"><strong>Customer Concentration</strong><br><span class="muted small">Revenue from top 3 clients as % of total</span></span>
+          <span class="label"><strong>Customer Concentration</strong><br><span class="text-small" style="color: #666;">Revenue from top 3 clients as % of total</span></span>
           <span class="target">Target: Under 15%</span>
           <span class="weight">Weight: High</span>
         </div>
         <div class="score-item">
-          <span class="label"><strong>Average Contract Length</strong><br><span class="muted small">Weighted average remaining contract term</span></span>
+          <span class="label"><strong>Average Contract Length</strong><br><span class="text-small" style="color: #666;">Weighted average remaining contract term</span></span>
           <span class="target">Target: 12+ months</span>
           <span class="weight">Weight: Medium</span>
         </div>
         <div class="score-item">
-          <span class="label"><strong>Gross Revenue Retention</strong><br><span class="muted small">% of last year's revenue retained (excluding upsells)</span></span>
+          <span class="label"><strong>Gross Revenue Retention</strong><br><span class="text-small" style="color: #666;">% of last year's revenue retained (excluding upsells)</span></span>
           <span class="target">Target: 85%+</span>
           <span class="weight">Weight: High</span>
         </div>
         <div class="score-item">
-          <span class="label"><strong>Margin by Service Line</strong><br><span class="muted small">Gross margin tracked per offering</span></span>
+          <span class="label"><strong>Margin by Service Line</strong><br><span class="text-small" style="color: #666;">Gross margin tracked per offering</span></span>
           <span class="target">Target: 40%+ gross</span>
           <span class="weight">Weight: Medium</span>
         </div>
         <div class="score-item">
-          <span class="label"><strong>Owner Dependency</strong><br><span class="muted small">Can the business operate 4+ weeks without the owner?</span></span>
+          <span class="label"><strong>Owner Dependency</strong><br><span class="text-small" style="color: #666;">Can the business operate 4+ weeks without the owner?</span></span>
           <span class="target">Target: Yes</span>
           <span class="weight">Weight: Very High</span>
         </div>
@@ -228,18 +552,18 @@
       <h3>How to Use This</h3>
 
       <div class="card">
-        <p><strong>Green on all six?</strong> You're in a strong position. Go to market with confidence. You'll likely command the top of your industry's multiple range.</p>
-        <p><strong>Yellow on 1-2?</strong> Fix them before you sell. Each improvement is worth 0.5-1.0x on your multiple. On a $1.5M EBITDA business, that's $750K to $1.5M per fix.</p>
-        <p><strong>Red on 3+?</strong> You need 12-18 months of preparation before going to market. Selling now means leaving significant value on the table. The good news: now you know exactly where to focus.</p>
+        <p style="color: #999;"><strong style="color: #f0f0f0;">Green on all six?</strong> You're in a strong position. Go to market with confidence. You'll likely command the top of your industry's multiple range.</p>
+        <p style="color: #999;"><strong style="color: #f0f0f0;">Yellow on 1-2?</strong> Fix them before you sell. Each improvement is worth 0.5-1.0x on your multiple. On a $1.5M EBITDA business, that's $750K to $1.5M per fix.</p>
+        <p style="color: #999;"><strong style="color: #f0f0f0;">Red on 3+?</strong> You need 12-18 months of preparation before going to market. Selling now means leaving significant value on the table. The good news: now you know exactly where to focus.</p>
       </div>
 
       <h3>The Uncomfortable Truth</h3>
 
       <div class="card card-alt">
-        <p>Most owners think about selling and then scramble to prepare. The smart ones prepare for 18-24 months, then go to market from a position of strength.</p>
-        <p>Every item on this scorecard is fixable. But fixing them takes time. The earlier you start, the more you keep.</p>
-        <p>A $10M business that scores well on all six factors might sell for $60-80M with a strong PE buyer. The same business with red flags everywhere might get $30M - or no offers at all.</p>
-        <p><strong>The difference isn't the business. It's the preparation.</strong></p>
+        <p style="color: #999;">Most owners think about selling and then scramble to prepare. The smart ones prepare for 18-24 months, then go to market from a position of strength.</p>
+        <p style="color: #999;">Every item on this scorecard is fixable. But fixing them takes time. The earlier you start, the more you keep.</p>
+        <p style="color: #999;">A $10M business that scores well on all six factors might sell for $60-80M with a strong PE buyer. The same business with red flags everywhere might get $30M - or no offers at all.</p>
+        <p style="color: #999;"><strong style="color: #f0f0f0;">The difference isn't the business. It's the preparation.</strong></p>
       </div>
     </div>
   </section>
@@ -249,24 +573,26 @@
   <!-- CTA SECTION -->
   <section class="cta-section">
     <div class="container">
-      <h2>Now You Know the Framework. <span class="gold">What's Your Score?</span></h2>
-      <p style="max-width: 540px; margin: 0 auto 32px; color: var(--text-muted);">Take our 5-minute assessment to get your personalized scorecard across all six buyer criteria - with specific recommendations for your industry and size.</p>
+      <div class="cta-inner">
+        <h2>Now You Know the Framework. <span class="text-gold">What's Your Score?</span></h2>
+        <p style="max-width: 520px; margin: 0 auto 36px; color: #999;">Take our 5-minute assessment to get your personalized scorecard across all six buyer criteria - with specific recommendations for your industry and size.</p>
 
-      <div style="margin-bottom: 16px;">
-        <a href="https://thearenapartners.com/assessment.html" class="btn btn-gold">Take the Free Assessment</a>
-      </div>
-      <div>
-        <a href="https://thearenapartners.com/book.html" class="btn btn-outline">Ready to Talk? Book a Call</a>
-      </div>
+        <div style="margin-bottom: 16px;">
+          <a href="https://thearenapartners.com/assessment.html" class="btn btn-gold">Want to See Your Exact Score?</a>
+        </div>
+        <div>
+          <a href="https://thearenapartners.com/book.html" class="btn btn-outline">Ready to Talk to an Advisor?</a>
+        </div>
 
-      <p class="muted small" style="margin-top: 32px;">No pitch. No pressure. Just an honest conversation about where you stand and what you can do about it.</p>
+        <p class="text-small" style="color: #666; margin-top: 32px;">No pitch. No pressure. Just an honest conversation about where you stand and what you can do about it.</p>
+      </div>
     </div>
   </section>
 
   <!-- PRIDE CLOSE -->
-  <section style="padding: 40px 0; text-align: center;">
+  <section class="pride-close">
     <div class="container">
-      <p class="muted" style="font-size: 1.1rem; font-style: italic;">You built something valuable. Make sure you get paid for it.</p>
+      <p>You built something worth protecting. Make sure you get paid for it.</p>
     </div>
   </section>
 
@@ -281,6 +607,50 @@
       <p>&copy; 2026 The Arena Partners. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Personalization from URL params (enhancement only - page works without JS)
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var name = params.get('name');
+      var revenue = params.get('revenue');
+      var businessType = params.get('business_type');
+
+      if (name || revenue || businessType) {
+        var el = document.getElementById('personalization');
+        var text = document.getElementById('personalization-text');
+        var parts = [];
+
+        if (name) {
+          parts.push('Welcome, <strong>' + name.split(' ')[0] + '</strong>.');
+        }
+
+        if (revenue && businessType) {
+          parts.push('Based on your <strong>' + revenue + '</strong> <strong>' + businessType + '</strong> business, here\'s what matters most for your exit.');
+        } else if (businessType) {
+          parts.push('Based on your <strong>' + businessType + '</strong> business, here\'s what matters most for your exit.');
+        } else if (revenue) {
+          parts.push('Based on your <strong>' + revenue + '</strong> revenue, here\'s what matters most for your exit.');
+        }
+
+        if (parts.length > 0) {
+          text.innerHTML = parts.join(' ');
+          el.classList.add('visible');
+        }
+      }
+    })();
+
+    // Reading progress bar
+    (function() {
+      var bar = document.getElementById('progress-bar');
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = Math.min(progress, 100) + '%';
+      });
+    })();
+  </script>
 
 </body>
 </html>
