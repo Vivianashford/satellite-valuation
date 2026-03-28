@@ -716,7 +716,10 @@
         <h2 class="form-title">Get the Free Training</h2>
         <p class="form-subtitle">3 Steps to Increase Your Business Value Before You Sell</p>
 
-        <form action="training.html" method="GET" id="valuation-form">
+        <form action="https://arena-api.jean-475.workers.dev/api/lead-capture" method="POST" id="valuation-form">
+          <input type="hidden" name="source" value="satellite-valuation">
+          <input type="hidden" name="redirect" value="https://vivianashford.github.io/satellite-valuation/training.html">
+
           <div class="form-group">
             <label class="form-label" for="name">Your Name</label>
             <input type="text" id="name" name="name" class="form-input" placeholder="John Smith" required autocomplete="name">
