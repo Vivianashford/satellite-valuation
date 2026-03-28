@@ -85,9 +85,7 @@
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { font-size: 16px; scroll-behavior: smooth; }
-
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: #0a0a0a;
@@ -96,74 +94,147 @@
       font-size: 17px;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
-
     a { color: #C9A84C; text-decoration: none; transition: color 0.2s ease; }
     a:hover { color: #D4B65C; }
 
-    /* Layout */
+    /* Container */
     .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
     @media (max-width: 600px) { .container { padding: 0 20px; } }
 
-    /* Typography */
-    h1, h2, h3 { color: #f0f0f0; font-weight: 700; line-height: 1.2; letter-spacing: -0.03em; }
-    h1 { font-size: clamp(2.2rem, 5.5vw, 3.2rem); font-weight: 900; }
-    h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 20px; }
-    h3 { font-size: 1.25rem; margin-bottom: 12px; letter-spacing: -0.02em; }
-    p { margin-bottom: 16px; color: #f0f0f0; }
-    .text-secondary { color: #999; }
-    .text-muted { color: #666; }
-    .text-gold { color: #C9A84C; }
-    .text-green { color: #34C759; }
-    .text-red { color: #FF3B30; }
-    .text-small { font-size: 0.875rem; }
-    .mono { font-family: 'JetBrains Mono', monospace; font-weight: 500; }
-    .label-text { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: #999; }
-
-    /* Hero */
+    /* ========== HERO ========== */
     .hero {
-      padding: 120px 0 80px;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 80px 20px 60px;
       position: relative;
     }
-    .hero::after {
-      content: '';
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #C9A84C;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.2s forwards;
+    }
+    .hero h1 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      color: #f0f0f0;
+      margin-bottom: 28px;
+      max-width: 680px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.4s forwards;
+    }
+    .hero h1 span {
+      color: #C9A84C;
+    }
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      color: #999;
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto 48px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 18px 40px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      background: #C9A84C;
+      border-radius: 2px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+      text-decoration: none;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.8s forwards;
+    }
+    .hero-cta:hover {
+      background: #D4B65C;
+      color: #0a0a0a;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
+    }
+    .hero-scroll {
       position: absolute;
-      bottom: 0;
+      bottom: 32px;
       left: 50%;
       transform: translateX(-50%);
-      width: 200px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #2a2a2a, transparent);
-    }
-    .hero-badge {
-      display: inline-block;
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.12em;
-      color: #C9A84C;
-      border: 1px solid rgba(201, 168, 76, 0.3);
-      border-radius: 2px;
-      padding: 8px 20px;
-      margin-bottom: 32px;
+      color: #666;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 1.2s forwards;
     }
-    .hero h1 { margin-bottom: 24px; }
-    .hero .subtitle {
-      font-size: 1.15rem;
-      color: #999;
-      max-width: 520px;
-      margin: 0 auto 40px;
-      line-height: 1.6;
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(180deg, #666, transparent);
+      margin: 8px auto 0;
     }
 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ========== SECTIONS ========== */
+    .section {
+      padding: 80px 0;
+    }
     @media (max-width: 600px) {
-      .hero { padding: 80px 0 48px; }
+      .section { padding: 48px 0; }
     }
 
-    /* Sections */
-    .section { padding: 80px 0; }
-    @media (max-width: 600px) { .section { padding: 48px 0; } }
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #C9A84C;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      color: #f0f0f0;
+      margin-bottom: 20px;
+    }
+    .section-intro {
+      font-size: 1.05rem;
+      color: #999;
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
 
     /* Divider */
     .divider {
@@ -172,172 +243,200 @@
       border: none;
       margin: 0;
     }
+    .divider-gradient {
+      height: 1px;
+      border: none;
+      margin: 0;
+      background: linear-gradient(90deg, transparent, #2a2a2a 20%, #2a2a2a 80%, transparent);
+    }
 
-    /* Cards */
+    /* ========== STAT BLOCKS ========== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 48px 0;
+    }
+    .stat-block {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 2px;
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: #C9A84C;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #666;
+    }
+    @media (max-width: 600px) {
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ========== CARDS ========== */
     .card {
       background: #1a1a1a;
       border: 1px solid #2a2a2a;
       border-radius: 2px;
       padding: 32px;
       margin-bottom: 20px;
+      transition: border-color 0.2s ease;
     }
-    .card-alt { background: #141414; }
+    .card-elevated {
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
     .card-gold {
-      border-color: rgba(201, 168, 76, 0.25);
-      background: linear-gradient(135deg, rgba(201, 168, 76, 0.04), #1a1a1a);
+      border-color: rgba(201, 168, 76, 0.2);
+      background: linear-gradient(180deg, rgba(201, 168, 76, 0.03) 0%, #1a1a1a 100%);
     }
-    @media (max-width: 600px) { .card { padding: 24px; } }
+    .card h3 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: #f0f0f0;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+    .card p { color: #999; margin-bottom: 16px; }
+    .card p:last-child { margin-bottom: 0; }
+    @media (max-width: 600px) {
+      .card { padding: 24px; }
+    }
 
-    /* Stat Blocks */
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 32px 0;
-    }
-    .stat-block {
-      background: #1a1a1a;
+    /* ========== DATA TABLE (Bloomberg feel) ========== */
+    .table-wrap {
+      margin: 28px 0;
       border: 1px solid #2a2a2a;
       border-radius: 2px;
-      padding: 28px 20px;
-      text-align: center;
+      overflow: hidden;
     }
-    .stat-number {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 2rem;
-      font-weight: 500;
-      color: #C9A84C;
-      line-height: 1.1;
-    }
-    .stat-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: #666;
-      margin-top: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    @media (max-width: 600px) {
-      .stat-row { grid-template-columns: 1fr; }
-    }
-
-    /* Data Table */
     .data-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 24px 0;
     }
-    .data-table th, .data-table td {
+    .data-table th {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #666;
+      background: #111;
       padding: 14px 16px;
       text-align: left;
       border-bottom: 1px solid #2a2a2a;
     }
-    .data-table th {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #666;
+    .data-table td {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(42, 42, 42, 0.5);
     }
     .data-table tbody tr:nth-child(odd) { background: #141414; }
     .data-table tbody tr:nth-child(even) { background: #1a1a1a; }
-    .data-table td { color: #f0f0f0; font-size: 0.95rem; }
-    .data-table td.mono { font-family: 'JetBrains Mono', monospace; }
-    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .data-table .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+    }
+    .data-table .text-green { color: #34C759; }
     @media (max-width: 600px) {
-      .data-table th, .data-table td { padding: 10px 8px; font-size: 0.85rem; }
+      .data-table th, .data-table td { padding: 12px 10px; font-size: 0.85rem; }
+      .data-table th { font-size: 9px; }
+    }
+    .table-source {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 12px;
+      line-height: 1.5;
     }
 
-    /* Math Block */
+    /* ========== MATH BLOCK ========== */
     .math-block {
-      background: #141414;
+      background: #111;
       border: 1px solid #2a2a2a;
       border-radius: 2px;
       padding: 28px;
       margin: 24px 0;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 500;
-      line-height: 2;
+      line-height: 2.1;
       color: #999;
     }
-    .math-block .result { color: #34C759; font-size: 1rem; }
+    .math-block .result { color: #34C759; font-size: 0.95rem; }
+    .math-block .loss { color: #FF3B30; }
+    .math-block .highlight { color: #f0f0f0; font-weight: 500; }
 
-    /* Check List */
+    /* ========== CHECKLIST ========== */
     .check-list { list-style: none; padding: 0; }
     .check-list li {
-      padding: 14px 0 14px 36px;
+      padding: 16px 0 16px 40px;
       position: relative;
-      border-bottom: 1px solid #2a2a2a;
+      border-bottom: 1px solid rgba(42, 42, 42, 0.6);
       color: #f0f0f0;
+      font-size: 1rem;
+      line-height: 1.65;
     }
     .check-list li:last-child { border-bottom: none; }
     .check-list li::before {
       content: '\2713';
       position: absolute;
       left: 0;
+      top: 16px;
       color: #C9A84C;
       font-weight: 700;
       font-size: 1rem;
     }
+    .check-list li strong { color: #f0f0f0; }
+    .check-list li span { color: #666; }
 
-    /* Numbered List */
-    .numbered-list { list-style: none; padding: 0; counter-reset: item; }
+    /* ========== NUMBERED LIST ========== */
+    .numbered-list { list-style: none; padding: 0; counter-reset: step; }
     .numbered-list li {
-      padding: 20px 0 20px 52px;
+      padding: 24px 0 24px 60px;
       position: relative;
-      border-bottom: 1px solid #2a2a2a;
-      counter-increment: item;
+      border-bottom: 1px solid rgba(42, 42, 42, 0.6);
+      counter-increment: step;
     }
     .numbered-list li:last-child { border-bottom: none; }
     .numbered-list li::before {
-      content: counter(item);
+      content: counter(step);
       position: absolute;
       left: 0;
-      top: 20px;
-      width: 36px;
-      height: 36px;
-      background: rgba(201, 168, 76, 0.1);
+      top: 24px;
+      width: 40px;
+      height: 40px;
+      background: rgba(201, 168, 76, 0.08);
+      border: 1px solid rgba(201, 168, 76, 0.15);
       color: #C9A84C;
-      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
       font-size: 0.85rem;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
+    .numbered-list li strong { color: #f0f0f0; display: block; margin-bottom: 4px; }
+    .numbered-list li span { color: #666; font-size: 0.95rem; }
 
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 16px 32px;
-      font-size: 1rem;
-      font-weight: 600;
-      font-family: 'Inter', sans-serif;
-      border-radius: 2px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-      text-decoration: none;
-      text-align: center;
-    }
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    }
-    .btn-gold { background: #C9A84C; color: #0a0a0a; }
-    .btn-gold:hover { background: #D4B65C; color: #0a0a0a; }
-    .btn-outline {
-      background: transparent;
-      color: #C9A84C;
-      border: 1px solid rgba(201, 168, 76, 0.4);
-    }
-    .btn-outline:hover { border-color: #C9A84C; color: #D4B65C; }
-
-    /* Form */
+    /* ========== FORM SECTION ========== */
     .form-section {
-      padding: 80px 0;
-      text-align: center;
+      padding: 100px 0 80px;
       position: relative;
     }
     .form-section::before {
@@ -347,51 +446,74 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(180deg, transparent, rgba(201, 168, 76, 0.02), transparent);
+      background: radial-gradient(ellipse at 50% 0%, rgba(201, 168, 76, 0.03) 0%, transparent 60%);
       pointer-events: none;
     }
-    @media (max-width: 600px) { .form-section { padding: 48px 0; } }
+    @media (max-width: 600px) {
+      .form-section { padding: 64px 0 48px; }
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .form-header-label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #C9A84C;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .form-header h2 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      color: #f0f0f0;
+      margin-bottom: 16px;
+    }
+    .form-header p {
+      font-size: 1.05rem;
+      color: #999;
+      max-width: 460px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
 
     .form-box {
       background: #1a1a1a;
-      border: 1px solid rgba(201, 168, 76, 0.15);
+      border: 1px solid rgba(201, 168, 76, 0.12);
       border-radius: 2px;
       padding: 48px 40px;
-      max-width: 520px;
+      max-width: 480px;
       margin: 0 auto;
-      text-align: left;
       position: relative;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
     }
     .form-box::before {
       content: '';
       position: absolute;
       top: -1px;
-      left: 32px;
-      right: 32px;
+      left: 40px;
+      right: 40px;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.4), transparent);
+      background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.35), transparent);
     }
-    @media (max-width: 600px) { .form-box { padding: 32px 24px; } }
-
-    .form-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      text-align: center;
-      margin-bottom: 8px;
-      letter-spacing: -0.03em;
-    }
-    .form-subtitle {
-      text-align: center;
-      color: #999;
-      font-size: 0.95rem;
-      margin-bottom: 32px;
+    @media (max-width: 600px) {
+      .form-box { padding: 32px 20px; }
+      .form-box::before { left: 20px; right: 20px; }
     }
 
     .form-group { margin-bottom: 20px; }
     .form-label {
       display: block;
-      font-size: 12px;
+      font-family: 'Inter', sans-serif;
       font-weight: 600;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #999;
@@ -400,89 +522,96 @@
     .form-input,
     .form-select {
       width: 100%;
-      min-height: 48px;
-      padding: 12px 16px;
+      min-height: 50px;
+      padding: 14px 16px;
       font-family: 'Inter', sans-serif;
       font-size: 17px;
       color: #f0f0f0;
-      background: #141414;
+      background: #111;
       border: 1px solid #2a2a2a;
       border-radius: 2px;
       outline: none;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
       -webkit-appearance: none;
       appearance: none;
     }
     .form-input:focus,
     .form-select:focus {
       border-color: #C9A84C;
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.08);
     }
-    .form-input::placeholder { color: #666; }
+    .form-input::placeholder { color: #555; }
     .form-select {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 16px center;
       padding-right: 40px;
     }
-    .form-select option {
-      background: #141414;
-      color: #f0f0f0;
-    }
+    .form-select option { background: #141414; color: #f0f0f0; }
 
     .form-submit {
       width: 100%;
-      min-height: 52px;
-      padding: 16px 32px;
+      min-height: 56px;
+      padding: 18px 32px;
+      margin-top: 12px;
       font-family: 'Inter', sans-serif;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
+      letter-spacing: -0.01em;
       color: #0a0a0a;
       background: #C9A84C;
       border: none;
       border-radius: 2px;
       cursor: pointer;
       transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
-      margin-top: 8px;
     }
     .form-submit:hover {
       background: #D4B65C;
       transform: translateY(-1px);
-      box-shadow: 0 8px 32px rgba(201, 168, 76, 0.15);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
     }
     .form-submit:active { transform: translateY(0); }
 
     .form-proof {
       text-align: center;
-      color: #666;
+      color: #555;
       font-size: 0.8rem;
-      margin-top: 16px;
+      margin-top: 20px;
+      letter-spacing: 0.01em;
     }
 
-    /* CTA inline */
-    .cta-inline {
-      text-align: center;
-      margin: 40px 0 0;
-    }
-
-    /* Trust Bar */
+    /* ========== TRUST BAR ========== */
     .trust-bar {
       text-align: center;
-      padding: 32px 0;
-      color: #666;
+      padding: 32px 20px;
+      color: #555;
       font-size: 0.8rem;
       letter-spacing: 0.02em;
     }
     .trust-bar span { display: inline-block; margin: 0 16px; }
 
-    /* Footer */
-    footer {
-      padding: 48px 0;
+    /* ========== PRIDE CLOSE ========== */
+    .pride-close {
+      padding: 64px 20px;
       text-align: center;
-      color: #666;
+    }
+    .pride-close p {
+      color: #555;
+      font-size: 1.1rem;
+      font-style: italic;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      padding: 48px 20px;
+      text-align: center;
+      color: #555;
       font-size: 0.8rem;
       border-top: 1px solid #2a2a2a;
     }
-    footer a { color: #666; }
+    footer a { color: #555; transition: color 0.2s ease; }
     footer a:hover { color: #C9A84C; }
     .footer-links { margin-bottom: 16px; }
     .footer-links a { margin: 0 16px; }
@@ -494,7 +623,7 @@
     }
     .footer-newsletter p {
       font-size: 0.85rem;
-      color: #666;
+      color: #555;
       margin-bottom: 16px;
     }
     .footer-newsletter iframe {
@@ -503,40 +632,67 @@
       border-radius: 2px;
     }
 
-    /* Pride close */
-    .pride-close {
-      padding: 48px 0;
-      text-align: center;
+    /* ========== SCROLL REVEALS ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .pride-close p {
-      color: #666;
-      font-size: 1.05rem;
-      font-style: italic;
-      letter-spacing: -0.01em;
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== CTA INLINE ========== */
+    .cta-inline {
+      text-align: center;
+      margin: 48px 0 0;
+    }
+    .cta-inline a {
+      display: inline-block;
+      padding: 18px 40px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      background: #C9A84C;
+      border-radius: 2px;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .cta-inline a:hover {
+      background: #D4B65C;
+      color: #0a0a0a;
+      transform: translateY(-1px);
+      box-shadow: 0 12px 40px rgba(201, 168, 76, 0.15);
+    }
+    @media (max-width: 600px) {
+      .cta-inline a { display: block; width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
+  <!-- ==================== HERO ==================== -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-badge">Free Valuation Guide</div>
-      <h1>What Is Your Service Business <span class="text-gold">Actually Worth?</span></h1>
-      <p class="subtitle" style="font-size: 1.15rem; color: #999; max-width: 520px; margin: 0 auto 40px; line-height: 1.6;">Most owners overestimate by 40%. Here's how buyers really calculate it.</p>
-      <a href="#get-training" class="btn btn-gold">Get the Free Training</a>
-    </div>
+    <div class="hero-eyebrow">Free Valuation Guide</div>
+    <h1>What Is Your Service<br>Business <span>Actually Worth?</span></h1>
+    <p class="hero-sub">Most owners overestimate by 40%. Here's how buyers really calculate it.</p>
+    <a href="#get-training" class="hero-cta">Get the Free Training</a>
+    <div class="hero-scroll">Scroll</div>
   </section>
 
-  <hr class="divider">
+  <hr class="divider-gradient">
 
-  <!-- SECTION 1: The 3 Numbers -->
+  <!-- ==================== THE 3 NUMBERS ==================== -->
   <section class="section">
     <div class="container">
-      <h2>The 3 Numbers That Determine Your Exit Price</h2>
-      <p style="color: #999;">Forget what your accountant told you. Forget what your buddy sold his business for. Buyers use one formula, and it comes down to three numbers.</p>
+      <div class="reveal">
+        <span class="section-label">The Formula</span>
+        <h2 class="section-title">The 3 Numbers That Determine<br>Your Exit Price</h2>
+        <p class="section-intro">Forget what your accountant told you. Forget what your buddy sold his business for. Buyers use one formula, and it comes down to three numbers.</p>
+      </div>
 
-      <div class="stat-row">
+      <div class="stats-grid reveal">
         <div class="stat-block">
           <div class="stat-number">1</div>
           <div class="stat-label">Adjusted EBITDA</div>
@@ -551,59 +707,60 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card card-elevated reveal">
         <h3>Adjusted EBITDA</h3>
-        <p style="color: #999;">Start with net profit. Add back your salary, interest, depreciation, amortization, and one-time expenses. That's your adjusted EBITDA - the number buyers actually care about.</p>
-        <p class="text-small" style="color: #666;">Example: $600K net profit + $250K owner salary + $50K one-time legal fees = <strong class="text-gold">$900K adjusted EBITDA</strong></p>
+        <p>Start with net profit. Add back your salary, interest, depreciation, amortization, and one-time expenses. That's your adjusted EBITDA - the number buyers actually care about.</p>
+        <p style="color: #666; font-size: 0.9rem;">Example: $600K net profit + $250K owner salary + $50K one-time legal fees = <strong style="color: #C9A84C;">$900K adjusted EBITDA</strong></p>
       </div>
 
-      <div class="card">
+      <div class="card card-elevated reveal">
         <h3>Industry Multiple</h3>
-        <p style="color: #999;">Your EBITDA gets multiplied by a number that depends on your industry, size, and risk profile. Here are the current ranges for service businesses:</p>
+        <p>Your EBITDA gets multiplied by a number that depends on your industry, size, and risk profile. Here are the current ranges for service businesses:</p>
 
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>Industry</th>
-              <th>EBITDA Multiple</th>
-              <th>Typical Range</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Pest Control</td>
-              <td class="mono text-green">6 - 9x</td>
-              <td style="color: #666;">Recurring revenue premium</td>
-            </tr>
-            <tr>
-              <td>HVAC</td>
-              <td class="mono text-green">5 - 8x</td>
-              <td style="color: #666;">Service agreements boost value</td>
-            </tr>
-            <tr>
-              <td>Plumbing</td>
-              <td class="mono">4 - 7x</td>
-              <td style="color: #666;">Depends on maintenance contracts</td>
-            </tr>
-            <tr>
-              <td>Electrical</td>
-              <td class="mono">4 - 6x</td>
-              <td style="color: #666;">Commercial contracts valued higher</td>
-            </tr>
-            <tr>
-              <td>Landscaping</td>
-              <td class="mono">3 - 5x</td>
-              <td style="color: #666;">Seasonal risk discounts apply</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p class="text-small" style="color: #666;">Source: GF Data, PitchBook, and publicly reported service-sector transactions (2023-2025). Multiples reflect enterprise value to EBITDA for businesses between $1M and $10M EBITDA.</p>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Industry</th>
+                <th>EBITDA Multiple</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pest Control</td>
+                <td class="mono text-green">6 - 9x</td>
+                <td style="color: #666;">Recurring revenue premium</td>
+              </tr>
+              <tr>
+                <td>HVAC</td>
+                <td class="mono text-green">5 - 8x</td>
+                <td style="color: #666;">Service agreements boost value</td>
+              </tr>
+              <tr>
+                <td>Plumbing</td>
+                <td class="mono" style="color: #f0f0f0;">4 - 7x</td>
+                <td style="color: #666;">Depends on maintenance contracts</td>
+              </tr>
+              <tr>
+                <td>Electrical</td>
+                <td class="mono" style="color: #f0f0f0;">4 - 6x</td>
+                <td style="color: #666;">Commercial contracts valued higher</td>
+              </tr>
+              <tr>
+                <td>Landscaping</td>
+                <td class="mono" style="color: #f0f0f0;">3 - 5x</td>
+                <td style="color: #666;">Seasonal risk discounts apply</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-source">Source: GF Data, PitchBook, and publicly reported service-sector transactions (2023-2025). Multiples reflect enterprise value to EBITDA for businesses between $1M and $10M EBITDA.</p>
       </div>
 
-      <div class="card">
+      <div class="card card-elevated reveal">
         <h3>Risk Adjustments</h3>
-        <p style="color: #999;">This is where most owners get surprised. Buyers don't just look at your revenue - they stress-test everything that could go wrong after they write the check.</p>
+        <p>This is where most owners get surprised. Buyers don't just look at your revenue - they stress-test everything that could go wrong after they write the check.</p>
         <ul class="check-list">
           <li><strong>Owner dependency</strong> - Can it run without you for 4 weeks?</li>
           <li><strong>Customer concentration</strong> - Do your top 3 clients make up more than 30% of revenue?</li>
@@ -613,7 +770,7 @@
         </ul>
       </div>
 
-      <div class="card card-gold">
+      <div class="card card-gold card-elevated reveal">
         <h3>Quick Example</h3>
         <div class="math-block">
           Adjusted EBITDA: $1.2M<br>
@@ -621,42 +778,45 @@
           <span class="result">Estimated value: $7.2M</span><br><br>
           But with high owner dependency...<br>
           Adjusted multiple: 4.5x<br>
-          <span style="color: #FF3B30;">Reduced value: $5.4M</span><br><br>
-          <strong style="color: #f0f0f0;">Difference: $1.8M left on the table.</strong>
+          <span class="loss">Reduced value: $5.4M</span><br><br>
+          <span class="highlight">Difference: $1.8M left on the table.</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <hr class="divider">
+  <hr class="divider-gradient">
 
-  <!-- SECTION 2: Why Owners Get Less -->
+  <!-- ==================== WHY OWNERS GET LESS ==================== -->
   <section class="section">
     <div class="container">
-      <h2>Why 73% of Business Owners Get a Lower Price Than Expected</h2>
-      <p style="color: #999;">According to the International Business Brokers Association, nearly three-quarters of business owners are disappointed by the offers they receive. The gap between what they think their business is worth and what a buyer will actually pay comes down to three fixable problems.</p>
+      <div class="reveal">
+        <span class="section-label">The Reality</span>
+        <h2 class="section-title">Why 73% of Owners Get a Lower Price Than Expected</h2>
+        <p class="section-intro">According to the International Business Brokers Association, nearly three-quarters of business owners are disappointed by the offers they receive. The gap comes down to three fixable problems.</p>
+      </div>
 
-      <div class="card">
+      <div class="card card-elevated reveal">
         <h3>Problem 1: Owner Dependency</h3>
-        <p style="color: #999;">If you are the business - if every big decision, every key client relationship, every crisis runs through you - a buyer sees a ticking clock. The day you leave, value walks out the door.</p>
-        <p style="color: #999;">Buyers call this "key person risk." It's the single biggest multiple killer in service businesses. A company that can run for 4 weeks without the owner commands a 1.5-2x higher multiple than one that can't.</p>
-        <p class="text-small" style="color: #666;">Per the Exit Planning Institute, businesses with documented processes and a strong #2 leader sell for 20-40% more than owner-dependent equivalents.</p>
+        <p>If you are the business - if every big decision, every key client relationship, every crisis runs through you - a buyer sees a ticking clock. The day you leave, value walks out the door.</p>
+        <p>Buyers call this "key person risk." It's the single biggest multiple killer in service businesses. A company that can run for 4 weeks without the owner commands a 1.5-2x higher multiple than one that can't.</p>
+        <p style="color: #666; font-size: 0.9rem;">Per the Exit Planning Institute, businesses with documented processes and a strong #2 leader sell for 20-40% more than owner-dependent equivalents.</p>
       </div>
 
-      <div class="card">
+      <div class="card card-elevated reveal">
         <h3>Problem 2: Customer Concentration</h3>
-        <p style="color: #999;">If your top 3 clients represent more than 30% of revenue, buyers will discount your price - or walk away entirely. One lost contract shouldn't tank the business.</p>
-        <p style="color: #999;">The fix isn't complicated. It's deliberate. Diversify your client base over 18-24 months before going to market. Buyers want to see no single client above 10-15% of revenue.</p>
+        <p>If your top 3 clients represent more than 30% of revenue, buyers will discount your price - or walk away entirely. One lost contract shouldn't tank the business.</p>
+        <p>The fix isn't complicated. It's deliberate. Diversify your client base over 18-24 months before going to market. Buyers want to see no single client above 10-15% of revenue.</p>
       </div>
 
-      <div class="card">
+      <div class="card card-elevated reveal">
         <h3>Problem 3: No Recurring Revenue</h3>
-        <p style="color: #999;">Project-based revenue is worth less than contract revenue. Period. A plumbing company doing $8M in one-off jobs trades at 4x. The same company with 30% recurring maintenance contracts trades at 6x. That's a <span class="text-green">$16M difference on an $8M business.</span></p>
-        <p style="color: #999;">Buyers pay more for predictability. If you can show contracted, recurring revenue, you're speaking their language.</p>
+        <p>Project-based revenue is worth less than contract revenue. Period. A plumbing company doing $8M in one-off jobs trades at 4x. The same company with 30% recurring maintenance contracts trades at 6x. That's a <span style="color: #34C759;">$16M difference on an $8M business.</span></p>
+        <p>Buyers pay more for predictability. If you can show contracted, recurring revenue, you're speaking their language.</p>
       </div>
 
-      <div class="stat-row">
+      <div class="stats-grid reveal">
         <div class="stat-block">
           <div class="stat-number" style="color: #FF3B30;">73%</div>
           <div class="stat-label">Get less than expected</div>
@@ -673,49 +833,57 @@
     </div>
   </section>
 
-  <hr class="divider">
+  <hr class="divider-gradient">
 
-  <!-- SECTION 3: The Exercise -->
+  <!-- ==================== THE EXERCISE ==================== -->
   <section class="section">
     <div class="container">
-      <h2>The 10-Minute Exercise That Shows You Exactly Where You Stand</h2>
-      <p style="color: #999;">You can spend $15,000 on a formal valuation. Or you can spend 10 minutes answering three questions that tell you 80% of what you need to know.</p>
+      <div class="reveal">
+        <span class="section-label">Self-Assessment</span>
+        <h2 class="section-title">The 10-Minute Exercise That Shows You Exactly Where You Stand</h2>
+        <p class="section-intro">You can spend $15,000 on a formal valuation. Or you can spend 10 minutes answering three questions that tell you 80% of what you need to know.</p>
+      </div>
 
-      <div class="card">
+      <div class="card card-elevated reveal">
         <ol class="numbered-list">
           <li>
-            <strong>What's your adjusted EBITDA?</strong><br>
-            <span style="color: #666;">Net profit + owner salary + interest + depreciation + one-time costs. If you don't know this number off the top of your head, that's the first problem.</span>
+            <strong>What's your adjusted EBITDA?</strong>
+            <span>Net profit + owner salary + interest + depreciation + one-time costs. If you don't know this number off the top of your head, that's the first problem.</span>
           </li>
           <li>
-            <strong>What percentage of your revenue is recurring?</strong><br>
-            <span style="color: #666;">Maintenance contracts, service agreements, retainers. Below 20% and you're leaving serious money on the table.</span>
+            <strong>What percentage of your revenue is recurring?</strong>
+            <span>Maintenance contracts, service agreements, retainers. Below 20% and you're leaving serious money on the table.</span>
           </li>
           <li>
-            <strong>Could your business run for 4 weeks without you?</strong><br>
-            <span style="color: #666;">If the honest answer is no, your multiple is getting discounted by 20-40%. That's real money.</span>
+            <strong>Could your business run for 4 weeks without you?</strong>
+            <span>If the honest answer is no, your multiple is getting discounted by 20-40%. That's real money.</span>
           </li>
         </ol>
       </div>
 
-      <p style="color: #999;">If you scored well on all three, you're ahead of most owners. If not, the good news: every one of these is fixable in 12-18 months.</p>
-      <p style="color: #999;">We built a free training that walks you through exactly how to fix each one - with real numbers, real case studies, and the exact checklist PE buyers use to evaluate businesses like yours.</p>
+      <div class="reveal">
+        <p style="color: #999; margin-bottom: 16px;">If you scored well on all three, you're ahead of most owners. If not, the good news: every one of these is fixable in 12-18 months.</p>
+        <p style="color: #999;">We built a free training that walks you through exactly how to fix each one - with real numbers, real case studies, and the exact checklist PE buyers use to evaluate businesses like yours.</p>
+      </div>
 
-      <div class="cta-inline">
-        <a href="#get-training" class="btn btn-gold">Get My Free Valuation Training</a>
+      <div class="cta-inline reveal">
+        <a href="#get-training">Get My Free Valuation Training</a>
       </div>
     </div>
   </section>
 
-  <hr class="divider">
+  <hr class="divider-gradient">
 
-  <!-- FORM SECTION -->
+  <!-- ==================== FORM ==================== -->
   <section id="get-training" class="form-section">
     <div class="container">
-      <div class="form-box">
-        <h2 class="form-title">Get the Free Training</h2>
-        <p class="form-subtitle">3 Steps to Increase Your Business Value Before You Sell</p>
+      <div class="form-header reveal">
+        <span class="form-header-label">Free Access</span>
+        <h2>Get the Training</h2>
+        <p>3 steps to increase your business value before you sell. Real math. Real case studies. No fluff.</p>
+      </div>
 
+      <div class="form-box reveal">
         <form action="https://arena-api.jean-475.workers.dev/api/lead-capture" method="POST" id="valuation-form">
           <input type="hidden" name="source" value="satellite-valuation">
           <input type="hidden" name="redirect" value="https://vivianashford.github.io/satellite-valuation/training.html">
@@ -763,7 +931,7 @@
         <p class="form-proof">Join 5,000+ business owners who increased their exit value</p>
       </div>
 
-      <p class="text-small" style="color: #666; margin-top: 24px; text-align: center;">Real math. Real case studies. No fluff. Takes 15 minutes to read - could be worth millions at exit.</p>
+      <p style="color: #555; font-size: 0.85rem; margin-top: 28px; text-align: center; line-height: 1.5;">Takes 15 minutes to read - could be worth millions at exit.</p>
     </div>
   </section>
 
@@ -791,23 +959,36 @@
         <a href="training.html">Free Training</a>
         <a href="https://thearenapartners.com/privacy">Privacy</a>
       </div>
-
       <div class="footer-newsletter">
         <p>Get weekly insights on business valuation and exit strategy.</p>
         <iframe src="https://thearenapartners.substack.com/embed" width="480" height="150" frameborder="0" scrolling="no" style="max-width: 100%;"></iframe>
       </div>
-
       <p>&copy; 2026 The Arena Partners. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    // Brief loading state on form submit
+    // Loading state on form submit
     document.getElementById('valuation-form').addEventListener('submit', function() {
       var btn = document.getElementById('submit-btn');
       btn.textContent = 'Loading...';
       btn.style.opacity = '0.7';
+      btn.style.pointerEvents = 'none';
     });
+
+    // Scroll reveal
+    (function() {
+      var els = document.querySelectorAll('.reveal');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function(el) { observer.observe(el); });
+    })();
   </script>
 
 </body>
